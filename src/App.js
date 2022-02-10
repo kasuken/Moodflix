@@ -11,12 +11,8 @@ function App() {
     const [ movies, setMovies ] = useState()
     useEffect(() => {
         instance.get(requests.fetchTrendingAll)
-            .then(res => {
-                setMovies(res.data.results);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+            .then(res => setMovies(res.data.results))
+            .catch(err => console.log(err));
     }, []);
 
     return (
