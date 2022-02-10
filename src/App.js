@@ -1,6 +1,10 @@
 import {useEffect, useState} from "react";
+import {Route, Routes} from "react-router-dom";
 import requests from "./requests";
 import instance from "./instance";
+import Homepage from "./pages/Homepage/Homepage";
+import Navbar from "./components/Navbar/Navbar";
+import Catalogue from "./pages/Catalogue/Catalogue";
 
 function App() {
     const [ movies, setMovies ] = useState()
@@ -16,12 +20,11 @@ function App() {
 
     return (
         <div className="App">
-          <h1>Hello Moodflix-er</h1>
-            {
-                movies && movies.map(movie => (
-                    <p key={movie.id}>{movie.title}</p>
-                ))
-            }
+          <Navbar />
+          <Routes>
+            <Route path="/camera" element={<Catalogue />} />
+            <Route path="/home" element={<Homepage movies={movies} />} />
+          </Routes>
         </div>
     );
 }
