@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
-    "axios": "^0.25.0"
+    "axios": "^0.25.0",
+    "react-webcam": "^6.0.1"
   }
 }

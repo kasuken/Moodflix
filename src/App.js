@@ -5,6 +5,7 @@ import instance from "./instance";
 import Homepage from "./pages/Homepage/Homepage";
 import Navbar from "./components/Navbar/Navbar";
 import Catalogue from "./pages/Catalogue/Catalogue";
+import Welcome from "./pages/Welcome/Welcome";
 
 function App() {
     const [ movies, setMovies ] = useState()
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/camera" element={<Catalogue />} />
             <Route path="/home" element={<Homepage movies={movies} />} />
+            <Route exact path="/" element={<Welcome />} />
           </Routes>
         </div>
     );
