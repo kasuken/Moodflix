@@ -1,0 +1,29 @@
+@import '../../scss/mixin';
+@import '../../scss/variables';
+
+.movies {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  &__wrp {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  &__item {
+    width: 100%;
+    max-width: 25%;
+  }
+}

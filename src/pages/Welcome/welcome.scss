@@ -2,7 +2,6 @@
 @import '../../scss/variables';
 
 .welcome {
-  padding: 2em 4vw;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -13,5 +12,6 @@
 
   h1 {
     font-size: 3.5em;
+    margin-bottom: 3rem;
   }
 }
