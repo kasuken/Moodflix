@@ -1,0 +1,13 @@
+@import '../../scss/mixin';
+@import '../../scss/variables';
+
+.splash {
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e50914;
+  opacity: 1;
+}

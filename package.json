@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "axios": "^0.25.0",
+    "framer-motion": "^6.2.6",
     "react-webcam": "^6.0.1"
   }
 }

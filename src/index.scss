@@ -9,8 +9,21 @@
   box-sizing: border-box;
 }
 
+html {
+  position: relative;
+}
+
+root, .page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 7rem 4vw 2em 4vw;
+}
+
 body {
+  overflow: hidden;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #c5c0b2;
   font-family: $main-font;
-  background-color: $black;
   color: $white;
 }
