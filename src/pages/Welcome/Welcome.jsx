@@ -1,10 +1,11 @@
 import "./welcome.scss";
 import RevealTransition from "../../components/RevealTransition/RevealTransition";
+import SelfieCamera from "../../components/SelfieCamera/SelfieCamera";
 import {motion} from "framer-motion";
 
 const content = {
   animate: {
-    transition: { staggerChildren: 0.1, delayChildren: 1.2 },
+    transition: { staggerChildren: 0.25, delayChildren: 2.7 },
   },
 };
 
@@ -25,13 +26,9 @@ const Welcome = () => {
     <motion.section className="welcome page" exit={{ opacity: 0 }}>
       <RevealTransition />
 
-      <motion.div
-        initial="initial"
-        animate="animate"
-        variants={content}
-      >
+      <motion.div initial="initial" animate="animate" variants={content}>
         <motion.h1 variants={title}>Welcome to Moodflix</motion.h1>
-
+        <SelfieCamera />
       </motion.div>
     </motion.section>
   )

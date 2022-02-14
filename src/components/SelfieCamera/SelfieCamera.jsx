@@ -3,6 +3,7 @@ import { useState, useRef, useCallback } from "react";
 import Webcam from "react-webcam";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {motion} from "framer-motion";
 
 const videoConstraints = {
   width: 500,
@@ -30,14 +31,26 @@ const SelfieCamera = () => {
       image: image
     }).then(res => {
       console.log(res.data.image);
-      navigate('/');
+      navigate('/movies');
     })
       .catch(err => console.log(err));
   }
 
+  const cam = {
+    initial: { y: -20, opacity: 0 },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+        ease: [0.6, -0.05, 0.01, 0.99],
+      },
+    },
+  };
+
   return (
-    <div className="selfieCamera">
-      <div className={`cam__wrp ${photoTaken && "recorded"}`}>
+    <motion.div className="selfieCamera" variants={cam}>
+      <div className={`cam__wrp ${photoTaken ? "recorded" : ""}`}>
         <Webcam
           ref={webcamRef}
           width="100%"
@@ -55,7 +68,7 @@ const SelfieCamera = () => {
         <button className="button" onClick={capture}>Capture photo</button>
         <button className="button" onClick={upload}>Upload photo</button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

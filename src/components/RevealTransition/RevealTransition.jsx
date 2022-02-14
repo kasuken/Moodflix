@@ -34,7 +34,7 @@ const text = {
     y: "50.5%",
   },
   animate: {
-    y: "46%",
+    y: "44.5%",
     transition: {
       duration: 1.5,
       ease: [0.87, 0, 0.13, 1],
