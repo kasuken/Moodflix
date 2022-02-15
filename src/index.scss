@@ -20,10 +20,14 @@ root, .page {
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   width: 100vw;
   min-height: 100vh;
-  background-color: $sand;
   font-family: $main-font;
+  // -> LIGHT MODE
+  background-color: $sand;
   color: $white;
+  // ->DARK MODE
+  //background-color: $light-black;
+  //color: $white;
 }

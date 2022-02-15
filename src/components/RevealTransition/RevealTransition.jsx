@@ -1,5 +1,6 @@
 import "./revealTransition.scss";
 import {motion} from "framer-motion";
+import {defaultEasing} from "../../motionUtils";
 
 const blackBox = {
   initial: {
@@ -11,7 +12,7 @@ const blackBox = {
     transition: {
       when: "afterChildren",
       duration: 1.5,
-      ease: [0.87, 0, 0.13, 1],
+      ease: defaultEasing,
     },
   },
 };
@@ -37,7 +38,7 @@ const text = {
     y: "44.5%",
     transition: {
       duration: 1.5,
-      ease: [0.87, 0, 0.13, 1],
+      ease: defaultEasing,
     },
   },
 };

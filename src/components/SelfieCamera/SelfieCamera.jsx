@@ -4,6 +4,7 @@ import Webcam from "react-webcam";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import {motion} from "framer-motion";
+import {contentEasing} from "../../motionUtils";
 
 const videoConstraints = {
   width: 500,
@@ -43,7 +44,7 @@ const SelfieCamera = () => {
       opacity: 1,
       transition: {
         duration: 0.7,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        ease: contentEasing,
       },
     },
   };
@@ -59,6 +60,7 @@ const SelfieCamera = () => {
           minScreenshotWidth={videoConstraints.width}
           screenshotFormat="image/jpeg"
           videoConstraints={videoConstraints}
+          screenshotQuality={1}
           audio={false}
           className="cam"
         />
