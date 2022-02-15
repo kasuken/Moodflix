@@ -7,7 +7,7 @@ namespace Moodflix.Services
     {
 
         public Task<DetectedFace> AnalyseSentimentFromPhoto(string base64photo);
-        public Task<List<SearchMovie>> RetrieveMoviesBySentiment(string emotion);
+        public Task<List<SearchTv>> RetrieveMoviesBySentiment(string emotion);
 
     }
 }

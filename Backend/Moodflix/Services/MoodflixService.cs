@@ -104,7 +104,7 @@ public class MoodflixService : IMoodflixService
         return face;
     }
 
-    public async Task<List<SearchMovie>> RetrieveMoviesBySentiment(string emotion)
+    public async Task<List<SearchTv>> RetrieveMoviesBySentiment(string emotion)
     {
         var client = new TMDbClient(_configuration["Moodflix:TMDbKey"]);
 
@@ -114,14 +114,46 @@ public class MoodflixService : IMoodflixService
 
         var genres = await client.GetTvGenresAsync();
 
-        var series = await client.DiscoverTvShowsAsync()
-                            .WhereGenresInclude(genres)
+        var filters = new List<Genre>();
+
+        switch (emotion.ToLower())
+        {
+            case "anger":
+            case "contempt":
+            case "disgust":
+                filters.AddRange(genres.Where(c => c.Name.ToLower() == "war & politics"));
+                break;
+            case "fear":
+                filters.AddRange(genres.Where(c => c.Name.ToLower() == "mistery"));
+                break;
+            case "happiness":
+                filters.AddRange(genres.Where(c => c.Name.ToLower() == "comedy" || c.Name.ToLower() == "animation" || c.Name.ToLower() == "family" || c.Name.ToLower() == "action & adventure"));
+                break;
+            case "neutral":
+                filters.AddRange(genres.Where(c => c.Name.ToLower() == "talk" || c.Name.ToLower() == "documentary" || c.Name.ToLower() == "news"));
+                break;
+            case "sadness":
+                filters.AddRange(genres.Where(c => c.Name.ToLower() == "drama"));
+                break;
+            case "surprise":
+                filters.AddRange(genres.Where(c => c.Name.ToLower() == "reality" || c.Name == "action & adventure" || c.Name == "sci-fi & fantasy"));
+                break;
+        }
+
+         var series = await client.DiscoverTvShowsAsync()
+                            .WhereGenresInclude(filters)
                             .Query();
 
+        foreach (var item in series.Results)
+        {
+            var reviews = await client.GetTvShowReviewsAsync(item.Id);
 
+            foreach (var review in reviews.Results)
+            {
 
-        var reviews = await client.GetMovieReviewsAsync(597208);
+            }
+        }
 
-        return movies.Results;
+        return series.Results;
     }
 }
