@@ -110,6 +110,16 @@ public class MoodflixService : IMoodflixService
 
         var movies = await client.GetTrendingMoviesAsync(TimeWindow.Week);
 
+        //client.GetTrendingTvAsync(TimeWindow.Week);
+
+        var genres = await client.GetTvGenresAsync();
+
+        var series = await client.DiscoverTvShowsAsync()
+                            .WhereGenresInclude(genres)
+                            .Query();
+
+
+
         var reviews = await client.GetMovieReviewsAsync(597208);
 
         return movies.Results;
