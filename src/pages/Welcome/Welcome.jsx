@@ -5,7 +5,7 @@ import {motion} from "framer-motion";
 
 const content = {
   animate: {
-    transition: { staggerChildren: 0.25, delayChildren: 3 },
+    transition: { staggerChildren: 0.25, delayChildren: 2.8 },
   },
 };
 
