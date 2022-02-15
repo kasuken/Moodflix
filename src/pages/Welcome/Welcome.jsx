@@ -5,7 +5,7 @@ import {motion} from "framer-motion";
 
 const content = {
   animate: {
-    transition: { staggerChildren: 0.25, delayChildren: 2.7 },
+    transition: { staggerChildren: 0.25, delayChildren: 2.8 },
   },
 };
 
@@ -28,6 +28,7 @@ const Welcome = () => {
 
       <motion.div initial="initial" animate="animate" variants={content}>
         <motion.h1 variants={title}>Welcome to Moodflix</motion.h1>
+        <motion.p variants={title}>Don't know which or series film to watch? <br/>Activate your camera and let us suggest you something based on your actual mood.</motion.p>
         <SelfieCamera />
       </motion.div>
     </motion.section>

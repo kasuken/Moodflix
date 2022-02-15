@@ -3,7 +3,6 @@
 
 .navbar {
   position: fixed;
-  box-sizing: border-box;
   z-index: 10;
   width: 100%;
   height: 70px;
@@ -12,8 +11,13 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0 4vw;
-  background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
+  background-image: linear-gradient(to bottom,rgba(0,0,0,.3) 8%,rgba(0,0,0,0));
+  background-color: transparent;
   transition: all 0.2s ease-out;
+
+  &__scrolled {
+    background-color: $light-black;
+  }
 
   &__logo {
     max-width: 130px;
@@ -37,7 +41,6 @@
       display: inline-block;
       margin: 0 12px;
       font-size: 14px;
-      text-shadow: 2px 2px 6px rgba($color: $pure-black, $alpha: 0.9);
       pointer-events: all;
       cursor: pointer;
 
@@ -49,7 +52,6 @@
       }
       @include mq('lg'){
         font-size: 1.2vw;
-        text-shadow: 2px 2px 2px rgba($color: $black, $alpha: 0.45);
       }
       @include mq(1330px){
         font-size: 18px;

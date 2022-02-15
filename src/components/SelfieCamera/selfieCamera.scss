@@ -30,7 +30,7 @@
   }
 
   .btn__wrp {
-    max-width: 52rem;
+    max-width: 32rem;
     width: 100%;
     display: flex;
     align-items: center;
@@ -46,6 +46,7 @@
     background-color: $light-black;
     font-family: $main-font;
     font-size: 15px;
+    font-weight: 600;
     color: $white;
     outline: none;
     box-shadow: none;
