@@ -1,0 +1,148 @@
+@import '../../scss/mixin';
+@import "../../scss/variables";
+
+// STILL NEED TO WORK ON THIS
+
+.movie {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  padding: 0 .5vw;
+  margin-bottom: 3.5vw;
+  width: 100%;
+  transform: scale(1);
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  cursor: pointer;
+
+  @include mq('sm') {
+    width: 50%;
+  }
+  @include mq(900px) {
+    width: 25%;
+  }
+  @include mq('lg') {
+    width: 20%;
+  }
+
+  img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: $default-radius;
+  }
+
+  &__fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    min-height: 110px;
+    border-radius: $default-radius;
+    text-align: center;
+    font-weight: 500;
+    z-index: -1;
+    padding: 0 1em;
+  }
+
+  &__info {
+    position: absolute;
+    left: 3px;
+    bottom: 0;
+    transform: translateY(15%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: calc(100% - 6px);
+    height: 100%;
+    padding: 0.6em;
+    opacity: 0;
+    z-index: 2;
+    border-radius: $default-radius;
+    pointer-events: none;
+    transition: all .4s ease-out;
+
+    @include mq('md') {
+      pointer-events: all;
+    }
+
+    &--title {
+      h3 {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: none;
+        color: $white;
+
+        @include mq('lg') {
+          font-size: 15px;
+        }
+
+        @include mq(1378px, 1680px) {
+          font-size: 12px;
+        }
+
+        @include mq(1680px) {
+          font-size: 1.2rem;
+        }
+      }
+
+      p {
+        margin-bottom: 0;
+        font-size: 10px;
+        margin-top: 0.3vw;
+        color: $white;
+
+        @include mq('lg') {
+          font-size: 13px;
+        }
+
+        @include mq(1378px, 1680px) {
+          font-size: 10px;
+        }
+
+        @include mq(1680px) {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 3px;
+    width: calc(100% - 6px);
+    height: 100%;
+    border-radius: $default-radius;
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, transparent 65%);
+    z-index: 0;
+    opacity: 0;
+    box-sizing: border-box;
+    transition: opacity 0.2s ease-out;
+  }
+
+  @include mq('md') {
+    &:hover {
+      transform: translateY(-10px) !important;
+      z-index: 1;
+      opacity: 1;
+
+      &::after {
+        opacity: 1;
+      }
+
+      .movie__info {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
