@@ -3,7 +3,7 @@ import { BASE_IMG_URL } from "../../utils";
 import Fallback from "../Fallback/Fallback";
 
 const Movie = ({ item }) => {
-  const { title, original_name, original_title, name, poster_path } = item;
+  const { title, original_name, original_title, name, vote_average, poster_path } = item;
   let fallbackTitle = title || original_title || name || original_name;
 
   // STILL NEED TO WORK ON THIS
@@ -16,9 +16,8 @@ const Movie = ({ item }) => {
         <Fallback title={fallbackTitle} />
       )}
       <div className="movie__info">
-        <div className="movie__info--title">
-          <h3>{fallbackTitle}</h3>
-        </div>
+        <div className="movie__info--title">{fallbackTitle}</div>
+        <div className="movie__info--vote">{vote_average}</div>
       </div>
     </div>
   )

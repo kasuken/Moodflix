@@ -9,22 +9,10 @@
   display: inline-block;
   white-space: normal;
   vertical-align: top;
-  padding: 0 .5vw;
-  margin-bottom: 3.5vw;
   width: 100%;
   transform: scale(1);
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
   cursor: pointer;
-
-  @include mq('sm') {
-    width: 50%;
-  }
-  @include mq(900px) {
-    width: 25%;
-  }
-  @include mq('lg') {
-    width: 20%;
-  }
 
   img {
     display: block;
@@ -53,16 +41,17 @@
 
   &__info {
     position: absolute;
-    left: 3px;
+    left: 0;
     bottom: 0;
     transform: translateY(15%);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
-    width: calc(100% - 6px);
+    text-align: left;
+    width: 100%;
     height: 100%;
-    padding: 0.6em;
+    padding: 1rem;
     opacity: 0;
     z-index: 2;
     border-radius: $default-radius;
@@ -74,42 +63,42 @@
     }
 
     &--title {
-      h3 {
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: none;
-        color: $white;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: none;
+      color: $white;
 
-        @include mq('lg') {
-          font-size: 15px;
-        }
-
-        @include mq(1378px, 1680px) {
-          font-size: 12px;
-        }
-
-        @include mq(1680px) {
-          font-size: 1.2rem;
-        }
+      @include mq('lg') {
+        font-size: 1.2rem;
       }
 
-      p {
-        margin-bottom: 0;
+      @include mq(1378px, 1680px) {
+        font-size: 12px;
+      }
+
+      @include mq(1680px) {
+        font-size: 1.3rem;
+      }
+    }
+
+    &--vote {
+      margin-top: 0.25rem;
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: none;
+      color: $white;
+      opacity: .7;
+
+      @include mq('lg') {
+        font-size: .8rem;
+      }
+
+      @include mq(1378px, 1680px) {
         font-size: 10px;
-        margin-top: 0.3vw;
-        color: $white;
+      }
 
-        @include mq('lg') {
-          font-size: 13px;
-        }
-
-        @include mq(1378px, 1680px) {
-          font-size: 10px;
-        }
-
-        @include mq(1680px) {
-          font-size: 13px;
-        }
+      @include mq(1680px) {
+        font-size: 1rem;
       }
     }
   }
@@ -118,8 +107,8 @@
     content: "";
     position: absolute;
     top: 0;
-    left: 3px;
-    width: calc(100% - 6px);
+    left: 0;
+    width: 100%;
     height: 100%;
     border-radius: $default-radius;
     background: linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, transparent 65%);
