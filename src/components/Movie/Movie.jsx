@@ -11,7 +11,7 @@ const Movie = (props) => {
       {posterPath ? (
         <img src={`${BASE_IMG_URL}/${posterPath}`} alt={fallbackTitle} />
       ) : (
-        <Fallback title={fallbackTitle} />
+        <Fallback title={fallbackTitle} type="backdrop" />
       )}
       <div className="movie__info">
         <div className="movie__info--title">{fallbackTitle}</div>
