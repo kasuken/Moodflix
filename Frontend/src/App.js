@@ -6,11 +6,13 @@ import {AnimatePresence} from "framer-motion";
 
 const App = () => (
   <AnimatePresence exitBeforeEnter>
-    <Navbar />
-    <Routes>
-      <Route exact path="/" element={<Welcome />} />
-      <Route path="/movies" element={<Movies />} />
-    </Routes>
+    <>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Welcome />} />
+        <Route path="/movies" element={<Movies />} />
+      </Routes>
+    </>
   </AnimatePresence>
 )
 

@@ -1,11 +1,11 @@
-import {FALLBACK_IMG_URL} from "../../utils";
+import {FALLBACK_POSTER_IMG_URL, FALLBACK_BACKDROP_IMG_URL} from "../../requests";
 
-const Fallback = (title) => {
+const Fallback = ({name, type}) => {
   return (
     <>
-      <img src={FALLBACK_IMG_URL} alt={title} />
+      <img src={type === "backdrop" ? FALLBACK_POSTER_IMG_URL : FALLBACK_BACKDROP_IMG_URL} alt={name} />
       <div className='movie__fallback'>
-        <span>{title}</span>
+        <span>{name}</span>
       </div>
     </>
   );

@@ -5,49 +5,42 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import {motion} from "framer-motion";
 import {contentEasing} from "../../motionUtils";
+import {evaluateEmotions} from "../../utils";
+import requests from "../../requests";
 
-const videoConstraints = {
-  width: 500,
-  height: 500,
-  facingMode: "user"
+const cam = {
+  initial: { y: -20, opacity: 0 },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      ease: contentEasing,
+    },
+  },
 };
 
 const SelfieCamera = () => {
   const webcamRef = useRef(null);
-  const [ image, setImage ] = useState('');
   const [ photoTaken, setPhotoTaken ] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const videoConstraints = { width: 500, height: 500, facingMode: "user" };
 
-  const capture = useCallback(
-    () => {
+  const capture = useCallback(() => {
       const imageSrc = webcamRef.current.getScreenshot();
-      setImage(imageSrc);
       setPhotoTaken(true);
-    },
-    [webcamRef]
+
+      const upload = imageSrc => {
+        const imageFormatted = imageSrc.split(',')[1];
+        axios.post(requests.analyzeSentiment, { base64photo: imageFormatted }
+        ).then(res => {
+          const prevalentEmotion = evaluateEmotions(res.data.faceAttributes.emotion);
+          navigate('/movies', {state: prevalentEmotion});
+        }).catch(err => console.log(err));
+      }
+      upload(imageSrc);
+    }, [webcamRef, navigate]
   );
-
-  const upload = () => {
-    axios.post('https://jsonplaceholder.typicode.com/posts', {
-      image: image
-    }).then(res => {
-      console.log(res.data.image);
-      navigate('/movies');
-    })
-      .catch(err => console.log(err));
-  }
-
-  const cam = {
-    initial: { y: -20, opacity: 0 },
-    animate: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.7,
-        ease: contentEasing,
-      },
-    },
-  };
 
   return (
     <motion.div className="selfieCamera" variants={cam}>
@@ -65,11 +58,7 @@ const SelfieCamera = () => {
           className="cam"
         />
       </div>
-
-      <div className="btn__wrp">
-        <button className="button" onClick={capture}>Capture photo</button>
-        <button className="button" onClick={upload}>Upload photo</button>
-      </div>
+      <button className="button" onClick={capture}>Suggest me</button>
     </motion.div>
   );
 }
