@@ -3,23 +3,23 @@
   "name": "Moodflix",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "Moodflix_favicon_64.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "Moodflix_favicon_192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "Moodflix_favicon_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#c5c0b2",
+  "background_color": "#181818"
 }
