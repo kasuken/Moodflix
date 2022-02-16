@@ -21,7 +21,7 @@
     },
     "resourceName": {
       "type": "string",
-      "defaultValue": "moodflix",
+      "defaultValue": "Moodflix-Api",
       "metadata": {
         "description": "Name of the main resource to be created by this template."
       }
