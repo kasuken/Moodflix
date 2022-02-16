@@ -2,7 +2,7 @@ import {NavLink} from "react-router-dom";
 
 const NavLogo = () => {
   return (
-    <NavLink to="/" activeClassName="activeNavLink">
+    <NavLink to="/">
       <svg className="navbar__logo" width="167" height="41" viewBox="0 0 167 41" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M48.6307 28.7936H60.5827V25.1936H52.8787V11.6336H48.6307V28.7936Z" className="cneutral"  fill="#FFFFFF"></path>
         <path d="M67.6639 26.3936C65.9599 26.3936 65.0719 24.9056 65.0719 22.6736C65.0719 20.4416 65.9599 18.9296 67.6639 18.9296C69.3679 18.9296 70.2799 20.4416 70.2799 22.6736C70.2799 24.9056 69.3679 26.3936 67.6639 26.3936ZM67.6879 29.1776C71.6479 29.1776 74.2399 26.3696 74.2399 22.6736C74.2399 18.9776 71.6479 16.1696 67.6879 16.1696C63.7519 16.1696 61.1119 18.9776 61.1119 22.6736C61.1119 26.3696 63.7519 29.1776 67.6879 29.1776Z" className="cneutral" fill="#FFFFFF"></path>

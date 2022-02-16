@@ -5,6 +5,8 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import {motion} from "framer-motion";
 import {contentEasing} from "../../motionUtils";
+import {evaluateEmotions} from "../../utils";
+import requests from "../../requests";
 
 const videoConstraints = {
   width: 500,
@@ -16,7 +18,7 @@ const SelfieCamera = () => {
   const webcamRef = useRef(null);
   const [ image, setImage ] = useState('');
   const [ photoTaken, setPhotoTaken ] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const capture = useCallback(
     () => {
@@ -28,11 +30,12 @@ const SelfieCamera = () => {
   );
 
   const upload = () => {
-    axios.post('https://jsonplaceholder.typicode.com/posts', {
-      image: image
+    const imageFormatted = image.split(',')[1];
+    axios.post(requests.analyzeSentiment, {
+      base64photo: imageFormatted
     }).then(res => {
-      console.log(res.data.image);
-      navigate('/movies');
+      const prevalentEmotion = evaluateEmotions(res.data.faceAttributes.emotion);
+      navigate('/movies', { state: prevalentEmotion });
     })
       .catch(err => console.log(err));
   }
