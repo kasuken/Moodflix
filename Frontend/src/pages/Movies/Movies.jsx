@@ -1,27 +1,21 @@
 import "./movies.scss";
 import {useEffect, useState} from "react";
 import Movie from "../../components/Movie/Movie";
-import {useLocation} from "react-router-dom";
-import axios from "axios";
+import useImage from "../../hooks/useImage";
+import {NavLink} from "react-router-dom";
 import requests from "../../requests";
-import {motion} from "framer-motion";
+import {evaluateEmotions, returnRange} from "../../utils";
 import {contentEasing} from "../../motionUtils";
-import {evaluateEmotions} from "../../utils";
-import happinessMemoji from "../../images/emotions/male/30/glasses/emoji_male_30_glasses_happy.png";
-import sadnessMemoji from "../../images/emotions/male/30/glasses/emoji_male_30_glasses_sad.png";
-import angerMemoji from "../../images/emotions/male/30/glasses/emoji_male_30_glasses_angry.png";
-import neutralMemoji from "../../images/emotions/male/30/glasses/emoji_male_30_glasses_neutral.png";
-import contemptMemoji from "../../images/emotions/male/30/glasses/emoji_male_30_glasses_contempt.png";
-import disgustMemoji from "../../images/emotions/male/30/glasses/emoji_male_30_glasses_disgust.png";
-import fearMemoji from "../../images/emotions/male/30/glasses/emoji_male_30_glasses_fear.png";
-import surpriseMemoji from "../../images/emotions/male/30/glasses/emoji_male_30_glasses_surprise.png";
+import { memojiConfig } from "../../memojiConfig";
+import {useLocation} from "react-router-dom";
+import {motion} from "framer-motion";
+import axios from "axios";
 
 const content = {
   animate: {
     transition: { staggerChildren: 0.25, delayChildren: .75 },
   },
 };
-
 const title = {
   initial: { y: -20, opacity: 0 },
   animate: {
@@ -33,7 +27,6 @@ const title = {
     },
   },
 };
-
 const moviesVariants = {
   initial: { y: -20, opacity: 0 },
   animate: {
@@ -41,7 +34,7 @@ const moviesVariants = {
     opacity: 1,
     transition: {
       duration: 0.7,
-      ease: contentEasing,
+      ease: contentEasing
     },
   },
 };
@@ -49,32 +42,23 @@ const moviesVariants = {
 const Movies = () => {
   const [ movies, setMovies ] = useState();
   const { state: faceDetected } = useLocation();
+  const { gender, age, glasses } = faceDetected
   const { emotionType, emotionValue} = evaluateEmotions(faceDetected.emotion);
 
-  let emoji;
-  if (emotionType === "happiness") {
-    emoji = happinessMemoji;
-  } else if (emotionType === "sadness") {
-    emoji = sadnessMemoji;
-  } else if (emotionType === "neutral") {
-    emoji = neutralMemoji;
-  } else if (emotionType === "anger") {
-    emoji = angerMemoji;
-  } else if (emotionType === "contempt") {
-    emoji = contemptMemoji;
-  } else if (emotionType === "fear") {
-    emoji = fearMemoji;
-  } else if (emotionType === "disgust") {
-    emoji = disgustMemoji;
-  } else if (emotionType === "surprise") {
-    emoji = surpriseMemoji;
+  let memojiSrc;
+  if (gender && age && glasses) {
+    let genderPortion = gender === 0 ? memojiConfig["male"] : memojiConfig["female"];
+    let agePortion = genderPortion[returnRange(age)];
+    let memojiObj = glasses === 0 ? agePortion["noglasses"] : agePortion["glasses"];
+    memojiSrc = memojiObj[emotionType];
   }
+
+  const { imageSrc, fallbackSrc } = useImage(memojiSrc);
 
   useEffect(() => {
     axios.get(requests.retrieveBySentiment, {
       params: { emotion: emotionType }
-    })
-      .then(res => setMovies(res.data.movies))
+    }).then(res => setMovies(res.data.movies))
       .catch(err => console.log(err));
   }, [emotionType]);
 
@@ -86,13 +70,26 @@ const Movies = () => {
         animate="animate"
         variants={content}
       >
-        <motion.h1 variants={title} className="movies__title">Your mood, Our suggestions</motion.h1>
-        <motion.img src={emoji} className="movies__memoji" variants={title} />
-        <motion.p variants={title} className="movies__subtitle">We analyzed your photo and we tried to detect your emotions. <br/>Since the highest emotion we calculated is <span>{emotionType}</span> with a value of {`${emotionValue*100}%`}, these are the movies that might fit your current mood:</motion.p>
+        {gender && age && glasses ? (
+          <>
+            <motion.h1 variants={title} className="movies__title">Your mood, Our suggestions</motion.h1>
+            <motion.img src={imageSrc} className="movies__memoji" variants={title} />
+            <motion.p variants={title} className="movies__subtitle">We analyzed your photo and we tried to detect your emotions. <br/>Since the highest emotion we calculated is <span>{emotionType}</span> with a value of {`${(emotionValue*100).toFixed(1)}%`}, these are the movies that might fit your current mood:</motion.p>
 
-        <motion.div variants={moviesVariants} className="movies__wrp">
-          {movies && movies.map(movie => <Movie key={movie.id} {...movie} /> )}
-        </motion.div>
+            <motion.div variants={moviesVariants} className="movies__wrp">
+              {movies && movies.map(movie => <Movie key={movie.id} {...movie} /> )}
+            </motion.div>
+          </>
+        ) : (
+          <>
+            <motion.img src={fallbackSrc} className="movies__memoji" variants={title} />
+            <motion.h1 variants={title} className="movies__title">Oops! Please, try again.</motion.h1>
+            <motion.p variants={title} className="movies__subtitle error">We're sorry for the incovenience but we cannot determine all the necessary parameters with the picture you have submitted.</motion.p>
+            <motion.button variants={title} className="button">
+              <NavLink to="/">Try again</NavLink>
+            </motion.button>
+          </>
+        )}
       </motion.div>
     </motion.section>
   )
