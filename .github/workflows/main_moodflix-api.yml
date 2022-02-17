@@ -15,7 +15,7 @@ env:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -30,7 +30,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o Backend\Moodflix\${{env.PROJECT_FILE}}
+        run: dotnet publish -c Release -o Backend/Moodflix/${{env.PROJECT_FILE}}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
