@@ -5,8 +5,8 @@ name: Moodflix-Api
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+    paths: [ 'Backend/**' ]
   workflow_dispatch:
 
 env:
