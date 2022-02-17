@@ -2,15 +2,15 @@ export const memojiConfig = {
   "male": {
     "30": {
       "glasses":{
-       "happiness": "emotions/male/30/glasses/emoji_male_30_glasses_happy",
-       "sadness": "emotions/male/30/glasses/emoji_male_30_glasses_sad",
-       "anger": "emotions/male/30/glasses/emoji_male_30_glasses_angry",
-       "neutral": "emotions/male/30/glasses/emoji_male_30_glasses_neutral",
-       "contempt": "emotions/male/30/glasses/emoji_male_30_glasses_contempt",
-       "disgust": "emotions/male/30/glasses/emoji_male_30_glasses_disgust",
-       "fear": "emotions/male/30/glasses/emoji_male_30_glasses_fear",
-       "surprise": "emotions/male/30/glasses/emoji_male_30_glasses_surprise"
-     },
+        "happiness": "emotions/male/30/glasses/emoji_male_30_glasses_happy",
+        "sadness": "emotions/male/30/glasses/emoji_male_30_glasses_sad",
+        "anger": "emotions/male/30/glasses/emoji_male_30_glasses_angry",
+        "neutral": "emotions/male/30/glasses/emoji_male_30_glasses_neutral",
+        "contempt": "emotions/male/30/glasses/emoji_male_30_glasses_contempt",
+        "disgust": "emotions/male/30/glasses/emoji_male_30_glasses_disgust",
+        "fear": "emotions/male/30/glasses/emoji_male_30_glasses_fear",
+        "surprise": "emotions/male/30/glasses/emoji_male_30_glasses_surprise"
+      },
       "noglasses": {
         "happiness": "emotions/male/30/no-glasses/emoji_male_30_noglasses_happy",
         "sadness": "emotions/male/30/no-glasses/emoji_male_30_noglasses_sad",
