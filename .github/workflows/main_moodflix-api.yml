@@ -29,9 +29,10 @@ jobs:
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
+        working-directory: ${{ env.PROJECT_NAME }}
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o '${{ env.PROJECT_NAME }}/${{ env.PROJECT_FILE }}'
+        run: dotnet publish -c Release -o '${{ env.PROJECT_NAME }}/'
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
