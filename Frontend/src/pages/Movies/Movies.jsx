@@ -7,6 +7,9 @@ import requests from "../../requests";
 import {motion} from "framer-motion";
 import {contentEasing} from "../../motionUtils";
 import {evaluateEmotions} from "../../utils";
+import img1 from "../../images/emotions/male/30/glasses/emoji_male_30_glasses_happy.png";
+import img2 from "../../images/emotions/male/30/glasses/emoji_male_30_glasses_angry.png";
+import img3 from "../../images/emotions/male/30/glasses/emoji_male_30_glasses_sad.png";
 
 const content = {
   animate: {
@@ -40,8 +43,17 @@ const moviesVariants = {
 
 const Movies = () => {
   const [ movies, setMovies ] = useState();
-  const { state } = useLocation();
-  const prevalentEmotion = evaluateEmotions(state.emotion);
+  const { state: faceDetected } = useLocation();
+  const prevalentEmotion = evaluateEmotions(faceDetected.emotion);
+
+  let emoji;
+  if (prevalentEmotion === "happiness") {
+    emoji = img1;
+  } else if (prevalentEmotion === "sadness") {
+    emoji = img2;
+  } else if (prevalentEmotion === "neutral") {
+    emoji = img3;
+  }
 
   useEffect(() => {
     axios.get(requests.retrieveBySentiment, {
@@ -60,6 +72,7 @@ const Movies = () => {
         variants={content}
       >
         <motion.h1 variants={title} className="movies__title">Your mood, Our suggestions</motion.h1>
+        <motion.img src={emoji} className="movies__memoji" variants={title} />
         <motion.p variants={title} className="movies__subtitle">We analyzed your photo and we tried to detect your emotions. <br/>Since <span>your emotion score is 87</span>, these are the movies that might fit your current mood:</motion.p>
 
         <motion.div variants={moviesVariants} className="movies__wrp">
