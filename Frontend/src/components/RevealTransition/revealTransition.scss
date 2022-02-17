@@ -1,0 +1,57 @@
+@import '../../scss/mixin';
+@import '../../scss/variables';
+
+.reveal {
+  &__wrp {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: top center;
+  }
+
+  &__sheet {
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    background-color: $light-black;
+  }
+
+  &__svg {
+    &--wrp {
+      position: relative;
+      z-index: 98;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--pattern {
+      color: $white;
+
+      &.rect {
+        width: 100%;
+        height: 100%;
+        fill: $white;
+      }
+
+      &.motion-rect {
+        width: 100%;
+        height: 100%;
+        fill: $sand;
+      }
+    }
+
+    &--text {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import './scss/mixin';
+@import './scss/variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+}
+
+root, .page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 7rem 4vw 2em 4vw;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100vw;
+  min-height: 100vh;
+  font-family: $main-font;
+  // -> LIGHT MODE
+  background-color: $sand;
+  color: $light-black;
+  // ->DARK MODE
+  //background-color: $light-black;
+  //color: $white;
+}
