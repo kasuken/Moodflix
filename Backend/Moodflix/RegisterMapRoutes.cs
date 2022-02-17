@@ -1,4 +1,5 @@
-﻿using Moodflix.Services;
+﻿using Moodflix.Models;
+using Moodflix.Services;
 using TMDbLib.Objects.Search;
 
 namespace Moodflix;
@@ -8,6 +9,7 @@ public static class RegisterMapRoutes
     {
         MapAnalyseSentimentFromPhoto(builder);
         MapRetrieveMoviesBySentiment(builder);
+        MapRetrieveMoviesById(builder);
         return builder;
     }
 
@@ -42,7 +44,19 @@ public static class RegisterMapRoutes
 
             return Results.Ok(movies);
         })
-        .Produces<List<SearchMovie>>(StatusCodes.Status200OK)
+        .Produces<MoviesBySentimentResponse>(StatusCodes.Status200OK)
+        .RequireCors("AnyOrigin");
+    }
+
+    private static void MapRetrieveMoviesById(IEndpointRouteBuilder builder)
+    {
+        builder.MapGet("RetrieveMoviesById", async (string id, IMoodflixService service) =>
+        {
+            var movie = await service.RetrieveMoviesById(id);
+
+            return Results.Ok(movie);
+        })
+        .Produces<MovieResponse>(StatusCodes.Status200OK)
         .RequireCors("AnyOrigin");
     }
 }
