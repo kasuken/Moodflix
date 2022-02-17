@@ -107,7 +107,8 @@ public class MoodflixService : IMoodflixService
                 filters.AddRange(genres.Where(c => c.Name.ToLower() == "comedy" || c.Name.ToLower() == "animation" || c.Name.ToLower() == "family" || c.Name.ToLower() == "action & adventure"));
                 break;
             case "neutral":
-                filters.AddRange(genres.Where(c => c.Name.ToLower() == "talk" || c.Name.ToLower() == "documentary" || c.Name.ToLower() == "news"));
+                //filters.AddRange(genres.Where(c => c.Name.ToLower() == "talk" || c.Name.ToLower() == "documentary" || c.Name.ToLower() == "news"));
+                filters.AddRange(genres.Where(c => c.Name.ToLower() == "talk" || c.Name.ToLower() == "news"));
                 break;
             case "sadness":
                 filters.AddRange(genres.Where(c => c.Name.ToLower() == "drama"));
