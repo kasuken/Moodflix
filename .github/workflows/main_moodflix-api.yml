@@ -11,6 +11,7 @@ on:
 
 env:
   NETCORE_VERSION: '6.0.*'
+  PROJECT_FILE: Moodflix.csproj
 
 jobs:
   build:
@@ -29,7 +30,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Backend/Moodflix
+        run: dotnet publish -c Release -o Backend/Moodflix/${{env.PROJECT_FILE}}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
