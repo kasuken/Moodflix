@@ -42,14 +42,16 @@ const moviesVariants = {
 const Movies = () => {
   const [ movies, setMovies ] = useState();
   const { state: faceDetected } = useLocation();
-  const { gender, age, glasses } = faceDetected
-  const { emotionType, emotionValue} = evaluateEmotions(faceDetected.emotion);
+  const { emotionType, emotionValue} = evaluateEmotions(faceDetected?.emotion);
 
   let memojiSrc;
-  if (gender && age && glasses) {
-    let genderPortion = gender === 0 ? memojiConfig["male"] : memojiConfig["female"];
-    let agePortion = genderPortion[returnRange(age)];
-    let memojiObj = glasses === 0 ? agePortion["noglasses"] : agePortion["glasses"];
+  if ((faceDetected?.age) &&
+      (faceDetected?.gender === 0 || faceDetected?.gender === 1) &&
+      (faceDetected?.glasses === 0 || faceDetected?.glasses === 1)
+    ) {
+    let genderPortion = faceDetected?.gender === 0 ? memojiConfig["male"] : memojiConfig["female"];
+    let agePortion = genderPortion[returnRange(faceDetected?.age)];
+    let memojiObj = faceDetected?.glasses === 0 ? agePortion["noglasses"] : agePortion["glasses"];
     memojiSrc = memojiObj[emotionType];
   }
 
@@ -70,7 +72,9 @@ const Movies = () => {
         animate="animate"
         variants={content}
       >
-        {gender && age && glasses ? (
+        {(faceDetected?.age) &&
+        (faceDetected?.gender === 0 || faceDetected?.gender === 1) &&
+        (faceDetected?.glasses === 0 || faceDetected?.glasses === 1) ? (
           <>
             <motion.h1 variants={title} className="movies__title">Your mood, Our suggestions</motion.h1>
             <motion.img src={imageSrc} className="movies__memoji" variants={title} />
