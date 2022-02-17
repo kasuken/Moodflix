@@ -35,5 +35,5 @@ export const evaluateEmotions = (emotion) => {
     emotionType = "surprise";
   }
 
-  return emotionType;
+  return { emotionType, emotionValue };
 }
