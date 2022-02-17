@@ -119,6 +119,7 @@ public class MoodflixService : IMoodflixService
 
         var movies = await client.DiscoverMoviesAsync()
                            .IncludeWithAllOfGenre(filters)
+                           .IncludeAdultMovies(false)
                            .Query();
 
         foreach (var item in movies.Results)
@@ -204,5 +205,4 @@ public class MoodflixService : IMoodflixService
         var response = client.AnalyzeSentiment(sentence);
         return response;
     }
-
 }
