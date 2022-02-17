@@ -6,6 +6,13 @@ const Movie = (props) => {
   const { title, original_name, original_title, name, voteAverage, posterPath } = props;
   let fallbackTitle = title || original_title || name || original_name;
 
+  // Get movie reviews and additional details
+  // const handleClick = () => {
+  //   axios.get(requests.retrieveById, { params: { id }})
+  //     .then(res => console.log(res.data))
+  //     .catch(err => console.log(err));
+  // }
+
   return (
     <div className='movie'>
       {posterPath ? (
