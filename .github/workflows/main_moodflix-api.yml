@@ -33,6 +33,7 @@ jobs:
 
       - name: dotnet publish
         run: dotnet publish -c Release -o '${{ env.PROJECT_NAME }}/'
+        working-directory: ${{ env.PROJECT_NAME }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
