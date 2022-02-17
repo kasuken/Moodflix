@@ -58,15 +58,18 @@
       }
 
       a {
-        color: $white;
+        color: $light-black;
         text-decoration: none;
         cursor: pointer;
-        font-weight: 400;
-        will-change: font-weight;
-        transition: color .2s ease-in-out;
+        font-weight: 600;
+        transition: opacity .2s ease-in-out;
 
         &:hover {
-          color: #b3b3b3;
+          opacity: .5;
+        }
+
+        &.scrolled {
+          color: $white;
         }
       }
 

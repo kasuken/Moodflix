@@ -5,7 +5,6 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import {motion} from "framer-motion";
 import {contentEasing} from "../../motionUtils";
-import {evaluateEmotions} from "../../utils";
 import requests from "../../requests";
 
 const cam = {
@@ -34,8 +33,8 @@ const SelfieCamera = () => {
         const imageFormatted = imageSrc.split(',')[1];
         axios.post(requests.analyzeSentiment, { base64photo: imageFormatted }
         ).then(res => {
-          const prevalentEmotion = evaluateEmotions(res.data.faceAttributes.emotion);
-          navigate('/movies', {state: prevalentEmotion});
+          const faceAttributes = res.data.faceAttributes;
+          navigate('/movies', {state: faceAttributes});
         }).catch(err => console.log(err));
       }
       upload(imageSrc);

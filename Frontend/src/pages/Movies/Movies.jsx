@@ -6,6 +6,7 @@ import axios from "axios";
 import requests from "../../requests";
 import {motion} from "framer-motion";
 import {contentEasing} from "../../motionUtils";
+import {evaluateEmotions} from "../../utils";
 
 const content = {
   animate: {
@@ -39,19 +40,16 @@ const moviesVariants = {
 
 const Movies = () => {
   const [ movies, setMovies ] = useState();
-  const { state: emotion } = useLocation();
+  const { state } = useLocation();
+  const prevalentEmotion = evaluateEmotions(state.emotion);
 
   useEffect(() => {
     axios.get(requests.retrieveBySentiment, {
-      params: { emotion: emotion }
+      params: { emotion: prevalentEmotion }
     })
-      .then(res => {
-        console.log("emotion => ", emotion);
-        console.log("res.data => ", res.data);
-        setMovies(res.data)
-      })
+      .then(res => setMovies(res.data.movies))
       .catch(err => console.log(err));
-  }, [emotion]);
+  }, [prevalentEmotion]);
 
   return (
     <motion.section className="movies page" exit={{ opacity: 0 }}>
@@ -65,7 +63,7 @@ const Movies = () => {
         <motion.p variants={title} className="movies__subtitle">We analyzed your photo and we tried to detect your emotions. <br/>Since <span>your emotion score is 87</span>, these are the movies that might fit your current mood:</motion.p>
 
         <motion.div variants={moviesVariants} className="movies__wrp">
-            {movies && movies.map((movie, idx) => <Movie key={idx} {...movie} /> )}
+          {movies && movies.map(movie => <Movie key={movie.id} {...movie} /> )}
         </motion.div>
       </motion.div>
     </motion.section>

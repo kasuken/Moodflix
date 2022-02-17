@@ -7,8 +7,8 @@ const Navbar = () => {
   const isScrolled = useScroll(75);
   return (
     <nav className={`navbar ${isScrolled ? "navbar__scrolled" : ""}`}>
-      <NavLogo />
-      <NavLinks />
+      <NavLogo isScrolled={isScrolled} />
+      <NavLinks isScrolled={isScrolled} />
     </nav>
   )
 }
