@@ -8,7 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()
 {
     Description = "Moodflix API",
-    Title = "Moodflix API Deployed from Actions",
+    Title = "Moodflix API",
     Version = "v1",
     Contact = new OpenApiContact()
     {
