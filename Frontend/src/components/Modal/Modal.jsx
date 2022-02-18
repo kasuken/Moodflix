@@ -1,24 +1,16 @@
 import "./modal.scss";
 import { useRef } from "react";
 import { useModalValue } from "../../context/ModalProvider";
+import useOutsideClick from "../../hooks/useOutsideClick";
 import { AnimatePresence, motion } from "framer-motion";
 import { VscChromeClose } from "react-icons/vsc";
-import { defaultEasing } from "../../motionUtils";
-import useOutsideClick from "../../hooks/useOutsideClick";
-
-export const modalVariants = {
-  hidden: { opacity: 0, top: "100%", transition: { duration: .6, ease: defaultEasing } },
-  visible: { opacity: 1, top: "50%", transition: { duration: .8, ease: defaultEasing } }
-}
-
-export const modalOverlayVariants = {
-  hidden: { opacity: 0, transition: { duration: .2, delay: .5 } },
-  visible: { opacity: 1, transition: { duration: .2 } }
-}
+import {modalFadeInUpVariants, modalOverlayVariants, modalVariants, staggerOne} from "../../motionUtils";
+import {FALLBACK_BACKDROP_IMG_URL} from "../../requests";
 
 const Modal = () => {
   const modalRef = useRef(null);
-  const {dispatch, state: {isModalVisible}} = useModalValue();
+  const {dispatch, state: { isModalVisible, modalData }} = useModalValue();
+  const { fallbackTitle } = modalData;
   const handleModalClose = () => dispatch({type: "CLOSE_MODAL"});
 
   useOutsideClick(modalRef, () => {
@@ -46,6 +38,15 @@ const Modal = () => {
               <motion.button className="modal__closebtn" onClick={handleModalClose}>
                 <VscChromeClose />
               </motion.button>
+
+              <div className="modal__image--wrp">
+                <div className="modal__image--shadow" />
+                <img className="modal__image--img" src={FALLBACK_BACKDROP_IMG_URL} alt={fallbackTitle} />
+              </div>
+
+              <motion.div variants={staggerOne} initial="initial" animate="animate" exit="exit" className="modal__info--wrp">
+                <motion.h3 variants={modalFadeInUpVariants} className="modal__info--title">{fallbackTitle}</motion.h3>
+              </motion.div>
             </motion.div>
           </motion.div>
         </>

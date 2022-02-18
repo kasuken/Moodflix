@@ -9,15 +9,25 @@ const Movie = (props) => {
   const { id, title, original_name, original_title, name, voteAverage, posterPath } = props;
   let fallbackTitle = title || original_title || name || original_name;
   const { dispatch } = useModalValue();
-  const handleModalOpening = () => dispatch({ type: actionTypes.OPEN_MODAL });
 
   const handleClick = () => {
+    let movieDetails;
     axios.get(requests.retrieveById, { params: { id }})
-      .then(res => console.log(res.data))
+      .then(res => {
+        movieDetails = res.data;
+        console.log(movieDetails)
+      })
       .catch(err => console.log(err));
 
-    handleModalOpening();
+    handleModalOpening(movieDetails);
   }
+
+  const handleModalOpening = (movieDetails) => {
+    dispatch({
+      type: actionTypes.OPEN_MODAL,
+      payload: { fallbackTitle, movieDetails }
+    })
+  };
 
   return (
     <div className='movie' onClick={handleClick}>

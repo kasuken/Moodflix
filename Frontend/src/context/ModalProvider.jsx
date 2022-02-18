@@ -2,7 +2,8 @@ import React, { createContext, useContext, useReducer } from "react";
 import { actionTypes } from "./types";
 
 const initialState = {
-  isModalVisible: false
+  isModalVisible: false,
+  modalData: {}
 };
 
 const ModalContext = createContext();
@@ -12,7 +13,8 @@ const modalReducer = (state = initialState, { type, payload }) => {
     case actionTypes.OPEN_MODAL: {
       return {
         ...state,
-        isModalVisible: true
+        isModalVisible: true,
+        modalData: payload
       };
     }
     case actionTypes.CLOSE_MODAL: {
