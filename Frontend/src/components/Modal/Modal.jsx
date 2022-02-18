@@ -5,7 +5,7 @@ import useOutsideClick from "../../hooks/useOutsideClick";
 import { AnimatePresence, motion } from "framer-motion";
 import { VscChromeClose } from "react-icons/vsc";
 import axios from "axios";
-import { modalOverlayVariants, modalVariants } from "../../motionUtils";
+import {modalFadeInUpVariants, modalOverlayVariants, modalVariants, staggerOne} from "../../motionUtils";
 import requests, {BASE_IMG_URL, FALLBACK_BACKDROP_IMG_URL} from "../../requests";
 import {dateToYearOnly, truncate} from "../../utils";
 import imagePositive from "../../images/emotions/reviews/emoji_review_positive.png";
@@ -69,29 +69,30 @@ const Modal = () => {
 
               {!isLoading && !error && results && (
                 <>
-                  <img className="modal__image" src={results.movie.backdropPath ? `${BASE_IMG_URL}/${results.movie.backdropPath}` : FALLBACK_BACKDROP_IMG_URL} alt="" />
-                  <motion.div className="modal__info--wrp">
-                    <motion.h3 className="modal__info--title">
+                  <motion.img className="modal__image" src={results.movie.backdropPath ? `${BASE_IMG_URL}/${results.movie.backdropPath}` : FALLBACK_BACKDROP_IMG_URL} alt="" />
+
+                  <motion.div className="modal__info--wrp" variants={staggerOne} initial="initial" animate="animate" exit="exit">
+                    <motion.h3 className="modal__info--title" variants={modalFadeInUpVariants}>
                       {results.movie.title}&nbsp;
                       <span>({dateToYearOnly(results.movie.releaseDate)})</span>
                     </motion.h3>
-                    <motion.p className="modal__info--description">{results.movie.overview}</motion.p>
-                    <motion.h5 className="modal__section--title">Keywords</motion.h5>
-                    <motion.div className="modal__section--wrp">
+                    <motion.p className="modal__info--description" variants={modalFadeInUpVariants}>{results.movie.overview}</motion.p>
+                    <motion.h5 className="modal__section--title" variants={modalFadeInUpVariants}>Keywords</motion.h5>
+                    <motion.div className="modal__section--wrp" variants={modalFadeInUpVariants}>
                       {results.movieKeywords[0].keywords.length === 0 ? (
                         <p>This movie has no related keywords yet.</p>
                       ) : (
                         <>{results.movieKeywords[0].keywords.map((keyword, idx) => <span key={idx} className="modal__keyword">{keyword.toLowerCase()}</span> )}</>
                       )}
                     </motion.div>
-                    <motion.h5 className="modal__section--title">Reviews</motion.h5>
+                    <motion.h5 className="modal__section--title" variants={modalFadeInUpVariants}>Reviews</motion.h5>
                     <motion.div className="modal__section--wrp">
                       {results.reviews.length === 0 ? (
-                        <p>This movie has no reviews yet.</p>
+                        <motion.p variants={modalFadeInUpVariants}>This movie has no reviews yet.</motion.p>
                       ) : (
                         <>
                           {results.reviews.map((review, idx) => (
-                            <div key={idx} className="modal__review">
+                            <motion.div key={idx} className="modal__review" variants={modalFadeInUpVariants}>
                               <div className="modal__review--img-wrp">
                                 {review.sentiment === "Negative" ? (
                                   <>
@@ -111,7 +112,7 @@ const Modal = () => {
                                 )}
                               </div>
                               <p className="modal__review--content">{truncate(review.content, 450)}</p>
-                            </div>
+                            </motion.div>
                           ))}
                         </>
                       )}
