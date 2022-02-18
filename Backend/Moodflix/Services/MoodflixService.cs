@@ -123,7 +123,13 @@ public class MoodflixService : IMoodflixService
                            .IncludeAdultMovies(false)
                            .Query();
 
-        foreach (var item in movies.Results)
+        var results = movies.Results;
+
+        var sorted = results.OrderBy(a => Guid.NewGuid()).ToList();
+        results.Clear();
+        results.AddRange(sorted);
+
+        foreach (var item in results)
         {
             if (!string.IsNullOrEmpty(item.Overview))
             {
@@ -195,7 +201,7 @@ public class MoodflixService : IMoodflixService
 
         foreach (string keyphrase in response.Value)
         {
-            result.Add(keyphrase);
+            result.Add(keyphrase.ToLower());
         }
 
         return result;
@@ -205,5 +211,14 @@ public class MoodflixService : IMoodflixService
     {
         var response = client.AnalyzeSentiment(sentence);
         return response;
+    }
+}
+
+public static class Extensions
+{
+    public static IEnumerable<T> Randomize<T>(this IEnumerable<T> source)
+    {
+        Random rnd = new Random();
+        return source.OrderBy((item) => rnd.Next());
     }
 }

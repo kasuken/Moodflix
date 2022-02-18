@@ -7,7 +7,10 @@
 
 ## 🎯 About
 
-I have started this project with the purpose of learning how to structure a Web App of a mid-level complexity integrating the Redux logic.<br/>
+We have started this project with the purpose to partecipate to the [Microsoft Azure Hackthon on dev.to](https://dev.to/devteam/hack-the-microsoft-azure-trial-on-dev-2ne5).
+
+
+learning how to structure a Web App of a mid-level complexity integrating the Redux logic.<br/>
 I've tried to replicate the original layout as much as possible and I've also made some improvements in some sections inserting route animations and micro-interactions. I've also inserted a really close clone of Netflix's original splash animation (forked from a famous [codepen from Claudio Bonfati](https://codepen.io/claudio_bonfati/pen/mdryxPv)), made entirely with CSS, as well as the play animation. I have then sampled the original Netflix "ta-duummm" sound and I made it play along with the two animations.<br/>
 I put a lot of effort into it and I hope that you could like it.<br/><br/>
 The Web App redirects you to an authentication page, in which you can choose to sign up or to sign in: you can sign in with your custom account or with your Google account. Once you are logged in and after the splash animation, you will land on the homepage, in which you can find a mix of movies and series divided into rows.<br/>
@@ -21,7 +24,7 @@ Go try it and please let me know if you enjoyed it with a ⭐️, I would apprec
 
 Here you can find the demo link:
 
-- [Azure](https://moodflix.th3wall.codes)
+- [Hosted on Azure](https://moodflix.th3wall.codes)
 
 ## :sparkles: Features
 
@@ -43,73 +46,67 @@ Here you can find the demo link:
 
 ## :rocket: Technologies
 
+### Frontend
 - [TMDb API's](https://www.themoviedb.org/)
 - [React](https://reactjs.org/)
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 - [React Hooks Form](https://react-hook-form.com/)
 - [React Router](https://reactrouter.com/web/guides/quick-start)
-- [Redux](https://redux.js.org/)
-- [Redux Thunk](https://github.com/reduxjs/redux-thunk)
-- [Redux Saga](https://redux-saga.js.org/)
-- [Redux Persist](https://github.com/rt2zz/redux-persist)
-- [Redux Logger](https://github.com/LogRocket/redux-logger)
 - [Reselect](https://github.com/reduxjs/reselect)
 - [SCSS](https://sass-lang.com/)
 - [SwiperJS](https://swiperjs.com/react)
 - [Framer Motion](https://www.framer.com/motion/)
 - [React Icons](https://react-icons.github.io/react-icons/)
 
-### Deploy configuration steps
+### Backend
+- ASP.NET Core 6
+- C# 10
+- .NET 6
+- Azure Cognitive Services SDK
+- Swagger
+- Microsoft Clarity
 
-1. Connect your GitHub account to Netlify
-2. Select the project
-3. In Settings → Build & Deploy → Set **Build command** to : **_npm run build_**
-4. In Settings → Build & Deploy → Set **Publish directory** to : **_build_**
-5. In Settings → Build & Deploy → Set **Environment variables** → Click on **Edit variables** and add yours (ie: TMBd's API key, Firebase configuration).
-   <br/>
+### Cloud Services
+- Azure Text Analysis
+- Azure Face API
+
+### CI/CD with GitHub Actions
+
+![Moodflix API](https://github.com/kasuken/moodflix/actions/workflows/moodflix-api.yml/badge.svg)
+![Moodflix Frontend](https://github.com/kasuken/moodflix/actions/workflows/moodflix-frontend.yml/badge.svg)
+
+To deploy the solution, we use two different [GitHub Actions](https://github.com/kasuken/Moodflix/actions): one for the backend and the other one for the frontend.
 
 ## 📸 Screenshots
 
-**Sign In**
-![Screenshot of Fakeflix Sign In](https://cdn.jsdelivr.net/gh/Th3Wall/assets-cdn/Fakeflix/screenshots/Fakeflix_SignIn.jpg)
+**Loaging page**
+![Moodflix Loading page](https://user-images.githubusercontent.com/2757486/154629449-4f2984c8-1702-43f0-b40e-6459231e155a.png)
 <br/>
 
-**Sign Up**
-![Screenshot of Fakeflix Sign Up](https://cdn.jsdelivr.net/gh/Th3Wall/assets-cdn/Fakeflix/screenshots/Fakeflix_SignUp.jpg)
+**Landing Page with Webcam**
+![image](https://user-images.githubusercontent.com/2757486/154629834-ae146ed5-4859-479b-94f3-9acb3d2aab2f.png)
 <br/>
 
-**Homepage**
-![Screenshot of Fakeflix Homepage](https://cdn.jsdelivr.net/gh/Th3Wall/assets-cdn/Fakeflix/screenshots/Fakeflix_Home.jpg)
+**Results**
+![Screenshot of Moodflix results](https://user-images.githubusercontent.com/2757486/154628700-745f6e97-5585-442e-a818-df51162b4386.png)
 <br/>
-
-**Modal Detail**
-![Screenshot of Fakeflix Modal Detail](https://cdn.jsdelivr.net/gh/Th3Wall/assets-cdn/Fakeflix/screenshots/Fakeflix_DetailModal.jpg)
-<br/>
-
-**Mobile Experience**
-
-https://user-images.githubusercontent.com/25078541/123543831-b8a35700-d750-11eb-84dc-b53e5a9a997a.mp4
-
-<br/>
-
-**Desktop Experience**
-
-https://user-images.githubusercontent.com/25078541/123811962-01474580-d8f4-11eb-83ba-66cded3f321f.mp4
 
 <br/>
 
 ## 👨🏻‍💻 Run Locally
 
+### Frontend
+
 - Clone the project
 
 ```bash
-  git clone https://github.com/Th3Wall/Fakeflix
+  git clone https://github.com/kasuken/Moodflix
 ```
 
 - Go to the project directory
 
 ```bash
-  cd fakeflix
+  cd Frontend
 ```
 
 - Install dependencies
@@ -117,42 +114,32 @@ https://user-images.githubusercontent.com/25078541/123811962-01474580-d8f4-11eb-
 ```bash
   npm install
 ```
-
-- Create a .env file
-
-- Request an API key from TMDB and them add it to the .env file
-
-```
-REACT_APP_API_KEY=REACT_APP_API_KEY
-```
-
-- Create a project inside Google Firebase and export the configuration
-
-- Add the configuration inside the .env file created previously
-
-```
-REACT_APP_FIREBASE_API_KEY=REACT_APP_FIREBASE_API_KEY
-REACT_APP_FIREBASE_AUTH_DOMAIN=REACT_APP_FIREBASE_AUTH_DOMAIN
-REACT_APP_FIREBASE_PROJECT_ID=REACT_APP_FIREBASE_PROJECT_ID
-REACT_APP_FIREBASE_STORAGE_BUCKET=REACT_APP_FIREBASE_STORAGE_BUCKET
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=REACT_APP_FIREBASE_MESSAGING_SENDER_ID
-REACT_APP_FIREBASE_APP_ID=REACT_APP_FIREBASE_APP_ID
-REACT_APP_FIREBASE_MEASUREMEMT_ID=REACT_APP_FIREBASE_MEASUREMEMT_ID
-```
-
 - Start the server
 
 ```bash
   npm start
 ```
 
+### Backend
+
+- Clone the project
+
+```bash
+  git clone https://github.com/kasuken/Moodflix
+```
+
+Go the directory Backend and open the solution with Visual Studio 2022
+Press F5 to start the debug session.
+
 ## :white_check_mark: Requirements
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com), [Node](https://nodejs.org/en/) and [.NET 6](https://dotnet.microsoft.com/en-us/) installed.
 <br/>
+
+## 🧑‍💻 The Team
+- Emanuele Bartolesi [website](https://www.emanuelebartolesi.com)
+- Davide Mandelli [github](https://github.com/th3wall)
 
 ## 📝 License
 
-[MIT](https://github.com/Th3Wall/Fakeflix/blob/main/LICENSE)
-
-<a href="https://www.buymeacoffee.com/th3wall" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="41" width="174" alt="Buy Me A Coffee" /></a>
+[Apache-2.0 License](https://github.com/kasuken/Moodflix/blob/main/LICENSE)
