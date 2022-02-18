@@ -79,13 +79,17 @@
     margin-bottom: 0.8em;
     background: transparent;
     color: $light-black;
-    border: 1px solid $light-black;
+    border: 2px solid $light-black;
     transition: all 0.3s ease-out;
     outline: none;
 
     &:hover {
-      background: $white;
-      color: $black;
+      background: rgba($light-black, 0.5);
+      color: $white;
+    }
+
+    svg {
+      stroke-width: 1px;
     }
   }
 }
