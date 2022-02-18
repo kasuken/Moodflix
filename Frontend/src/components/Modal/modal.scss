@@ -1,0 +1,91 @@
+@import '../../scss/mixin';
+@import "../../scss/variables";
+
+.modal {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba($light-black, 0.7);
+    opacity: 1;
+    pointer-events: all;
+    z-index: 98;
+
+    &.modal__invisible {
+      opacity: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+  }
+
+  &__wrp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 90vw;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 99;
+    pointer-events: all;
+    background: $sand;
+    border-radius: 5px;
+
+    @include mq('sm') {
+      width: 80vw;
+    }
+
+    @include mq('md') {
+      width: 65vw;
+    }
+
+    @include mq('lg') {
+      width: 55vw;
+    }
+
+    @include mq('ll') {
+      max-width: 750px;
+      width: 100%;
+    }
+
+    &.modal__invisible {
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__closebtn {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    z-index: 1;
+    display: inline-flex;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 5px;
+    margin-bottom: 0.8em;
+    background: transparent;
+    color: $light-black;
+    border: 1px solid $light-black;
+    transition: all 0.3s ease-out;
+    outline: none;
+
+    &:hover {
+      background: $white;
+      color: $black;
+    }
+  }
+}

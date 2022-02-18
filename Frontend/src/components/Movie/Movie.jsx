@@ -1,20 +1,26 @@
 import "./movie.scss"
 import Fallback from "../Fallback/Fallback";
-import { BASE_IMG_URL } from "../../requests";
+import requests, { BASE_IMG_URL } from "../../requests";
+import axios from "axios";
+import {useModalValue} from "../../context/ModalProvider";
+import {actionTypes} from "../../context/types";
 
 const Movie = (props) => {
-  const { title, original_name, original_title, name, voteAverage, posterPath } = props;
+  const { id, title, original_name, original_title, name, voteAverage, posterPath } = props;
   let fallbackTitle = title || original_title || name || original_name;
+  const { dispatch } = useModalValue();
+  const handleModalOpening = () => dispatch({ type: actionTypes.OPEN_MODAL });
 
-  // Get movie reviews and additional details
-  // const handleClick = () => {
-  //   axios.get(requests.retrieveById, { params: { id }})
-  //     .then(res => console.log(res.data))
-  //     .catch(err => console.log(err));
-  // }
+  const handleClick = () => {
+    axios.get(requests.retrieveById, { params: { id }})
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+
+    handleModalOpening();
+  }
 
   return (
-    <div className='movie'>
+    <div className='movie' onClick={handleClick}>
       {posterPath ? (
         <img src={`${BASE_IMG_URL}/${posterPath}`} alt={fallbackTitle} />
       ) : (
