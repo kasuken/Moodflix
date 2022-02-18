@@ -8,6 +8,9 @@ import axios from "axios";
 import { modalOverlayVariants, modalVariants } from "../../motionUtils";
 import requests, {BASE_IMG_URL, FALLBACK_BACKDROP_IMG_URL} from "../../requests";
 import {dateToYearOnly, truncate} from "../../utils";
+import imagePositive from "../../images/emotions/reviews/emoji_review_positive.png";
+import imageNeutral from "../../images/emotions/reviews/emoji_review_neutral.png";
+import imageNegative from "../../images/emotions/reviews/emoji_review_negative.png";
 
  // TODO: COMPLETE REFACTOR
 
@@ -63,7 +66,6 @@ const Modal = () => {
               </motion.button>
 
               {error && <span>ERROR!!!</span>}
-              {/*{isLoading && !error && !results && <span>Loading...</span>}*/}
 
               {!isLoading && !error && results && (
                 <>
@@ -90,8 +92,25 @@ const Modal = () => {
                         <>
                           {results.reviews.map((review, idx) => (
                             <div key={idx} className="modal__review">
-                              <span className="modal__review--title">{review.sentiment}</span>
-                              <p className="modal__content">{truncate(review.content, 350)}</p>
+                              <div className="modal__review--img-wrp">
+                                {review.sentiment === "Negative" ? (
+                                  <>
+                                    <img src={imageNegative} className="modal__review--img" alt="Negative review"/>
+                                    <p>Didn't liked</p>
+                                  </>
+                                ) : review.sentiment === "Positive" ? (
+                                  <>
+                                    <img src={imagePositive} className="modal__review--img" alt="Positive review"/>
+                                    <p>Wow!</p>
+                                  </>
+                                ) : (
+                                  <>
+                                    <img src={imageNeutral} className="modal__review--img" alt="Neutral review"/>
+                                    <p>Not bad!</p>
+                                  </>
+                                )}
+                              </div>
+                              <p className="modal__review--content">{truncate(review.content, 450)}</p>
                             </div>
                           ))}
                         </>
