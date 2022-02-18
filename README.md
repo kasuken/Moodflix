@@ -70,14 +70,11 @@ Here you can find the demo link:
 - Azure Text Analysis
 - Azure Face API
 
-### Deploy configuration steps
+### CI/CD with GitHub Actions
 
-1. Connect your GitHub account to Netlify
-2. Select the project
-3. In Settings → Build & Deploy → Set **Build command** to : **_npm run build_**
-4. In Settings → Build & Deploy → Set **Publish directory** to : **_build_**
-5. In Settings → Build & Deploy → Set **Environment variables** → Click on **Edit variables** and add yours (ie: TMBd's API key, Firebase configuration).
-   <br/>
+To deploy the solution, we use two different [GitHub Actions](https://github.com/kasuken/Moodflix/actions): one for the backend and the other one for the frontend.
+
+<br/>
 
 ## 📸 Screenshots
 
@@ -97,16 +94,18 @@ Here you can find the demo link:
 
 ## 👨🏻‍💻 Run Locally
 
+### Frontend
+
 - Clone the project
 
 ```bash
-  git clone https://github.com/Th3Wall/Fakeflix
+  git clone https://github.com/kasuken/Moodflix
 ```
 
 - Go to the project directory
 
 ```bash
-  cd fakeflix
+  cd Frontend
 ```
 
 - Install dependencies
@@ -114,34 +113,22 @@ Here you can find the demo link:
 ```bash
   npm install
 ```
-
-- Create a .env file
-
-- Request an API key from TMDB and them add it to the .env file
-
-```
-REACT_APP_API_KEY=REACT_APP_API_KEY
-```
-
-- Create a project inside Google Firebase and export the configuration
-
-- Add the configuration inside the .env file created previously
-
-```
-REACT_APP_FIREBASE_API_KEY=REACT_APP_FIREBASE_API_KEY
-REACT_APP_FIREBASE_AUTH_DOMAIN=REACT_APP_FIREBASE_AUTH_DOMAIN
-REACT_APP_FIREBASE_PROJECT_ID=REACT_APP_FIREBASE_PROJECT_ID
-REACT_APP_FIREBASE_STORAGE_BUCKET=REACT_APP_FIREBASE_STORAGE_BUCKET
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=REACT_APP_FIREBASE_MESSAGING_SENDER_ID
-REACT_APP_FIREBASE_APP_ID=REACT_APP_FIREBASE_APP_ID
-REACT_APP_FIREBASE_MEASUREMEMT_ID=REACT_APP_FIREBASE_MEASUREMEMT_ID
-```
-
 - Start the server
 
 ```bash
   npm start
 ```
+
+### Backend
+
+- Clone the project
+
+```bash
+  git clone https://github.com/kasuken/Moodflix
+```
+
+Go the directory Backend and open the solution with Visual Studio 2022
+Press F5 to start the debug session.
 
 ## :white_check_mark: Requirements
 
@@ -150,7 +137,7 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com), [
 
 ## 🧑‍💻 The Team
 - Emanuele Bartolesi [website](https://www.emanuelebartolesi.com)
-- Davide Mandelli []()
+- Davide Mandelli [github](https://github.com/th3wall)
 
 ## 📝 License
 
