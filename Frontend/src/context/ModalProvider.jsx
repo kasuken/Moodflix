@@ -3,7 +3,7 @@ import { actionTypes } from "./types";
 
 const initialState = {
   isModalVisible: false,
-  modalData: {}
+  id: null
 };
 
 const ModalContext = createContext();
@@ -14,7 +14,7 @@ const modalReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isModalVisible: true,
-        modalData: payload
+        id: payload
       };
     }
     case actionTypes.CLOSE_MODAL: {

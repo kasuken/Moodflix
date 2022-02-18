@@ -16,6 +16,6 @@ export const modalOverlayVariants = {
 }
 
 export const modalFadeInUpVariants = {
-  initial: { y: 60, opacity: 0, transition: { duration: .8, ease: defaultEasing } },
-  animate: { y: 0, opacity: 1, transition: { duration: .8, ease: defaultEasing } }
+  initial: { y: 20, opacity: 0, transition: { duration: .8, ease: contentEasing } },
+  animate: { y: 0, opacity: 1, transition: { duration: .8, ease: contentEasing } }
 };
