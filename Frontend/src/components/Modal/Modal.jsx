@@ -1,9 +1,10 @@
 import "./modal.scss";
-import {useRef} from "react";
-import {useModalValue} from "../../context/ModalProvider";
-import {AnimatePresence, motion} from "framer-motion";
+import { useRef } from "react";
+import { useModalValue } from "../../context/ModalProvider";
+import { AnimatePresence, motion } from "framer-motion";
 import { VscChromeClose } from "react-icons/vsc";
-import {defaultEasing} from "../../motionUtils";
+import { defaultEasing } from "../../motionUtils";
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 export const modalVariants = {
   hidden: { opacity: 0, top: "100%", transition: { duration: .6, ease: defaultEasing } },
@@ -19,6 +20,10 @@ const Modal = () => {
   const modalRef = useRef(null);
   const {dispatch, state: {isModalVisible}} = useModalValue();
   const handleModalClose = () => dispatch({type: "CLOSE_MODAL"});
+
+  useOutsideClick(modalRef, () => {
+    if (isModalVisible) handleModalClose();
+  });
 
   return (
     <AnimatePresence exitBeforeEnter>
