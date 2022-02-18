@@ -201,7 +201,7 @@ public class MoodflixService : IMoodflixService
 
         foreach (string keyphrase in response.Value)
         {
-            result.Add(keyphrase);
+            result.Add(keyphrase.ToLower());
         }
 
         return result;
