@@ -72,9 +72,10 @@ Here you can find the demo link:
 
 ### CI/CD with GitHub Actions
 
-To deploy the solution, we use two different [GitHub Actions](https://github.com/kasuken/Moodflix/actions): one for the backend and the other one for the frontend.
+![Moodflix API](https://github.com/kasuken/moodflix/actions/workflows/moodflix-api.yml/badge.svg)
+![Moodflix Frontend](https://github.com/kasuken/moodflix/actions/workflows/moodflix-frontend.yml/badge.svg)
 
-<br/>
+To deploy the solution, we use two different [GitHub Actions](https://github.com/kasuken/Moodflix/actions): one for the backend and the other one for the frontend.
 
 ## 📸 Screenshots
 

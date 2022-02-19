@@ -54,6 +54,7 @@ const SelfieCamera = () => {
           videoConstraints={videoConstraints}
           screenshotQuality={1}
           audio={false}
+          mirrored={true}
           className="cam"
         />
       </div>

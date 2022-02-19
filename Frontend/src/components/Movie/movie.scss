@@ -1,8 +1,6 @@
 @import '../../scss/mixin';
 @import "../../scss/variables";
 
-// STILL NEED TO WORK ON THIS
-
 .movie {
   position: relative;
   overflow: hidden;
@@ -72,10 +70,6 @@
         font-size: 1.2rem;
       }
 
-      @include mq(1378px, 1680px) {
-        font-size: 12px;
-      }
-
       @include mq(1680px) {
         font-size: 1.3rem;
       }
@@ -91,10 +85,6 @@
 
       @include mq('lg') {
         font-size: .8rem;
-      }
-
-      @include mq(1378px, 1680px) {
-        font-size: 10px;
       }
 
       @include mq(1680px) {
