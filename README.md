@@ -8,12 +8,12 @@
 ## 🎯 About
 
 We have started this project with the purpose to partecipate to the [Microsoft Azure Hackthon on dev.to](https://dev.to/devteam/hack-the-microsoft-azure-trial-on-dev-2ne5).
-The goal of the project is to add a special features to an existing list of movies.
-When you are not certain in the night about the movies that you want to watch, Moodflix can help you to find your current mood and find a film for you.
-In the movie details our application displays all the reviews about it with the mood of the review. 
-You can get a global view at a glance to understand whether people have enjoyed the movie or not.
+The goal of the project is to add special features to an existing list of movies.<br/>
+When at night you are not sure about the movie you wanna watch, Moodflix can help you in discovering your actual mood and finding the perfect movie for your night.<br/>
+In the movie details our application displays all the reviews about it and their own mood. <br/>
+You can also get a global view at a glance to understand whether people have enjoyed that specific movie or not.
 <br/>
-Go try it and please let us know if you enjoyed it with a ⭐️, I would appreciate it a lot.
+Go try it and please let us know if you enjoyed it with a ⭐️ - we would really appreciate it.
 <br/>
 
 ## ▶️ Demo
@@ -27,7 +27,7 @@ Here you can find the demo link:
 :heavy_check_mark: &nbsp;&nbsp;Capture your face photo directly from your webcam/phone<br />
 :heavy_check_mark: &nbsp;&nbsp;Analyze and display your top emotion from the photo<br />
 :heavy_check_mark: &nbsp;&nbsp;Find objects and special objects on your face (beard, glasses, hat, ect.) and display them in our avatar selections<br />
-:heavy_check_mark: &nbsp;&nbsp;Display a list of movies basesd on your mood<br />
+:heavy_check_mark: &nbsp;&nbsp;Display a list of movies based on your mood<br />
 :heavy_check_mark: &nbsp;&nbsp;Analyze and display the emotion from the reviews and display an avatar next to each description<br />
 :heavy_check_mark: &nbsp;&nbsp;Keywords extration from the overview of the movies<br />
 
