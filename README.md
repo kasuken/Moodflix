@@ -78,7 +78,7 @@ To deploy the solution, we use two different [GitHub Actions](https://github.com
 ![Screenshot of Moodflix results](https://user-images.githubusercontent.com/2757486/154628700-745f6e97-5585-442e-a818-df51162b4386.png)
 <br/>
 
-** Movie Details
+**Movie Details**
 ![image](https://user-images.githubusercontent.com/2757486/154838027-19f27cc7-a101-4b34-975b-a6bd69469d21.png)
 <br/>
 
