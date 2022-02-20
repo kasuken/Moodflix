@@ -8,16 +8,12 @@
 ## 🎯 About
 
 We have started this project with the purpose to partecipate to the [Microsoft Azure Hackthon on dev.to](https://dev.to/devteam/hack-the-microsoft-azure-trial-on-dev-2ne5).
-
-
-learning how to structure a Web App of a mid-level complexity integrating the Redux logic.<br/>
-I've tried to replicate the original layout as much as possible and I've also made some improvements in some sections inserting route animations and micro-interactions. I've also inserted a really close clone of Netflix's original splash animation (forked from a famous [codepen from Claudio Bonfati](https://codepen.io/claudio_bonfati/pen/mdryxPv)), made entirely with CSS, as well as the play animation. I have then sampled the original Netflix "ta-duummm" sound and I made it play along with the two animations.<br/>
-I put a lot of effort into it and I hope that you could like it.<br/><br/>
-The Web App redirects you to an authentication page, in which you can choose to sign up or to sign in: you can sign in with your custom account or with your Google account. Once you are logged in and after the splash animation, you will land on the homepage, in which you can find a mix of movies and series divided into rows.<br/>
-Each row represents a movie/series category: you can click on it and you will be redirected to the selected category, a page that loads thousands of movies with an infinite scroll. You can also navigate to the movies page, series page, new & popular page (that contains the upcoming movies/series and the most popular ones) or you can navigate to your favorites page.<br/>
-You can add/remove movies/series through the plus and minus buttons that you can find hovering each poster or opening a single movie's detail modal. If you click on the play button you can enjoy a custom CSS-only play animation with Fakeflix's brand name.<br/>
-You have also the option to search through TMDB's catalogue using the search functionality inside the fixed navbar: you can search by movie name, actor or movie director.<br/><br/>
-Go try it and please let me know if you enjoyed it with a ⭐️, I would appreciate it a lot.
+The goal of the project is to add a special features to an existing list of movies.
+When you are not certain in the night about the movies that you want to watch, Moodflix can help you to find your current mood and find a film for you.
+In the movie details our application displays all the reviews about it with the mood of the review. 
+You can get a global view at a glance to understand whether people have enjoyed the movie or not.
+<br/>
+Go try it and please let us know if you enjoyed it with a ⭐️, I would appreciate it a lot.
 <br/>
 
 ## ▶️ Demo
@@ -28,21 +24,12 @@ Here you can find the demo link:
 
 ## :sparkles: Features
 
-:heavy_check_mark: &nbsp;&nbsp;Display movies and series, old and upcoming, also from the real Netflix<br />
-:heavy_check_mark: &nbsp;&nbsp;Category related page with infinite scroll<br />
-:heavy_check_mark: &nbsp;&nbsp;Search by title, actor, movie director<br />
-:heavy_check_mark: &nbsp;&nbsp;Add/Remove to/from "My list" functionality<br />
-:heavy_check_mark: &nbsp;&nbsp;Detail modal with extra informations about the selected movie/series<br />
-:heavy_check_mark: &nbsp;&nbsp;Customized splash animation (credits: [Claudio Bonfati's pen](https://codepen.io/claudio_bonfati/pen/mdryxPv)) with characteristic Netflix sound<br />
-:heavy_check_mark: &nbsp;&nbsp;Play animation with characteristic Netflix sound<br />
-:heavy_check_mark: &nbsp;&nbsp;Google login<br />
-:heavy_check_mark: &nbsp;&nbsp;User Sign In & User Sign Up<br />
-:heavy_check_mark: &nbsp;&nbsp;Use of React hooks and custom hooks<br />
-:heavy_check_mark: &nbsp;&nbsp;Favourites list persistence (session storage)<br />
-:heavy_check_mark: &nbsp;&nbsp;Responsive layout<br />
-:heavy_check_mark: &nbsp;&nbsp;Swipeable movies list<br />
-:heavy_check_mark: &nbsp;&nbsp;Loading skeletons<br />
-:heavy_check_mark: &nbsp;&nbsp;Route animations and micro-interactions (handled with Framer Motion)<br />
+:heavy_check_mark: &nbsp;&nbsp;Capture your face photo directly from your webcam/phone<br />
+:heavy_check_mark: &nbsp;&nbsp;Analyze and display your top emotion from the photo<br />
+:heavy_check_mark: &nbsp;&nbsp;Find objects and special objects on your face (beard, glasses, hat, ect.) and display them in our avatar selections<br />
+:heavy_check_mark: &nbsp;&nbsp;Display a list of movies basesd on your mood<br />
+:heavy_check_mark: &nbsp;&nbsp;Analyze and display the emotion from the reviews and display an avatar next to each description<br />
+:heavy_check_mark: &nbsp;&nbsp;Keywords extration from the overview of the movies<br />
 
 ## :rocket: Technologies
 
@@ -59,16 +46,16 @@ Here you can find the demo link:
 - [React Icons](https://react-icons.github.io/react-icons/)
 
 ### Backend
-- ASP.NET Core 6
-- C# 10
-- .NET 6
-- Azure Cognitive Services SDK
-- Swagger
-- Microsoft Clarity
+- [ASP.NET Core 6](https://dotnet.microsoft.com/en-us/apps/aspnet)
+- [C# 10](https://docs.microsoft.com/en-us/dotnet/csharp/)
+- [.NET 6](https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet)
+- [Azure Cognitive Services SDK](https://azure.microsoft.com/en-us/services/cognitive-services/)
+- [Swagger](https://swagger.io/)
+- [Microsoft Clarity](https://clarity.microsoft.com/)
 
 ### Cloud Services
-- Azure Text Analysis
-- Azure Face API
+- [Azure Text Analysis](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/#overview)
+- [Azure Face API](https://azure.microsoft.com/en-us/services/cognitive-services/face/#overview)
 
 ### CI/CD with GitHub Actions
 
