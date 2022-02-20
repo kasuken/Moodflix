@@ -19,3 +19,8 @@ export const modalFadeInUpVariants = {
   initial: { y: 20, opacity: 0, transition: { duration: .8, ease: contentEasing } },
   animate: { y: 0, opacity: 1, transition: { duration: .8, ease: contentEasing } }
 };
+
+export const modalScaleUpVariants = {
+  initial: { y: 20, scale: 0, opacity: 0, transition: { duration: .6, ease: contentEasing } },
+  animate: { y: 0, scale: 1, opacity: 1, transition: { duration: .6, ease: contentEasing } }
+};
