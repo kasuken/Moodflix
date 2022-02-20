@@ -15,7 +15,7 @@ You can also get a global view at a glance to understand whether people have enj
 Go try it and please let us know if you enjoyed it with a ⭐️ - we would really appreciate it.
 
 ### Preview video
-
+![](https://github.com/kasuken/Moodflix/blob/main/moodflix.gif?raw=true)
 
 ## ▶️ Demo
 
