@@ -2,10 +2,17 @@ import "./modal.scss";
 import {useState, useEffect, useRef} from "react";
 import { useModalValue } from "../../context/ModalProvider";
 import useOutsideClick from "../../hooks/useOutsideClick";
+import useDisableScroll from "../../hooks/useDisableScroll";
 import { AnimatePresence, motion } from "framer-motion";
 import { VscChromeClose } from "react-icons/vsc";
 import axios from "axios";
-import {modalFadeInUpVariants, modalOverlayVariants, modalVariants, staggerOne} from "../../motionUtils";
+import {
+  modalFadeInUpVariants,
+  modalOverlayVariants,
+  modalScaleUpVariants,
+  modalVariants,
+  staggerOne
+} from "../../motionUtils";
 import requests, {BASE_IMG_URL, FALLBACK_BACKDROP_IMG_URL} from "../../requests";
 import {dateToYearOnly, truncate} from "../../utils";
 import imagePositive from "../../images/emotions/reviews/emoji_review_positive.png";
@@ -21,6 +28,7 @@ const Modal = () => {
   const [ isLoading, setIsLoading ] = useState(true);
   const [ error, setError ] = useState(false);
   const handleModalClose = () => dispatch({type: "CLOSE_MODAL"});
+  useDisableScroll(isModalVisible);
 
   useOutsideClick(modalRef, () => {
     if (isModalVisible) handleModalClose();
@@ -65,7 +73,7 @@ const Modal = () => {
                 <VscChromeClose />
               </motion.button>
 
-              {error && <span>ERROR!!!</span>}
+              {error && <span>We're sorry but we can't load the data you have requested.</span>}
 
               {!isLoading && !error && results && (
                 <>
@@ -78,11 +86,11 @@ const Modal = () => {
                     </motion.h3>
                     <motion.p className="modal__info--description" variants={modalFadeInUpVariants}>{results.movie.overview}</motion.p>
                     <motion.h5 className="modal__section--title" variants={modalFadeInUpVariants}>Keywords</motion.h5>
-                    <motion.div className="modal__section--wrp" variants={modalFadeInUpVariants}>
+                    <motion.div className="modal__section--wrp">
                       {results.movieKeywords[0].keywords.length === 0 ? (
-                        <p>This movie has no related keywords yet.</p>
+                        <motion.p variants={modalFadeInUpVariants}>This movie has no related keywords yet.</motion.p>
                       ) : (
-                        <>{results.movieKeywords[0].keywords.map((keyword, idx) => <span key={idx} className="modal__keyword">{keyword.toLowerCase()}</span> )}</>
+                        <>{results.movieKeywords[0].keywords.map((keyword, idx) => <motion.span variants={modalScaleUpVariants} key={idx} className="modal__keyword">{keyword.toLowerCase()}</motion.span> )}</>
                       )}
                     </motion.div>
                     <motion.h5 className="modal__section--title" variants={modalFadeInUpVariants}>Reviews</motion.h5>
