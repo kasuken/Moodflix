@@ -66,7 +66,7 @@ To deploy the solution, we use two different [GitHub Actions](https://github.com
 
 ## 📸 Screenshots
 
-**Loaging page**
+**Loading page**
 ![Moodflix Loading page](https://user-images.githubusercontent.com/2757486/154629449-4f2984c8-1702-43f0-b40e-6459231e155a.png)
 <br/>
 
