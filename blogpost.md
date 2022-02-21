@@ -27,7 +27,7 @@ Give a ⭐ on the project for future updates (we have a lot of ideas to implemen
 {% github https://github.com/kasuken/Moodflix %}
 
 ### Behind the scenes
-The frontend is written in **React 17.0.2** and **SASS**.
+The frontend is written in **React 17.0.2** and **SCSS**.
 From the homepage of the application, we capture your picture on-the-fly from your webcam (we use a specific NPM package for it) and we send the image as a base64 string directly to the Backend, through an API.
 
 The backend is written in **.NET 6** and more specifically **ASP.NET Core 6** and Minimal API.
@@ -37,6 +37,8 @@ We don't add any logic on the reply we get from Azure. It's the Backend itself w
 The Frontend elaborates the request and sends the next request to the Backend with the calculated mood (e.g. happiness, anger, sadness, etc..).
 With our own logic we call the **TMDB API** from the Backend to get a list of movies based on the user mood.
 The Frontend displays the results and whenever the user clicks on one of the movie's posters, the details page appears.
+On top of the results page, we display a **“dynamic” memoji** (the Apple ones) based on the details of the analyzed face: we added 12 different memoji characters (6 mood variants for each gender) that relying on the detected mood represents if the subject’s age is less than 30 years old, 50 years old ore over.
+In addition, we added a different memoji for the presence of glasses on the subject.
 
 How do we retrieve the data? The Frontend calls the API on the server while in the Backend we retrieve the reviews from the TMDB API and we send them to the **Azure Text Analytics** API. 
 We do also send the overview of the movie together.
