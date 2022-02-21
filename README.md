@@ -8,11 +8,11 @@
 ## 🎯 About
 
 ### Overview of our project
-We have started this project with the purpose to participate to the Microsoft Azure Hackathon on dev.to. Our project's goal is to add special features to an existing list of movies.
-Imagine yourself at night, thinking about what movie to watch and no title comes to your mind. Well, that's exactly when **Moodflix can help you in identifying the perfect movie** for your night, based on **your actual mood**. 
-And after selecting your movie, Moodflix shows you all the movie's reviews with their own mood icon. 
-You can also get a global view at a glance to understand whether people have enjoyed it or not.
-Go try it and please let us know if you enjoyed it with a ⭐️ - we would really appreciate it.
+We have started this project with the purpose to participate to the Microsoft Azure Hackathon on dev.to. Our project's goal is to add special features to an existing list of movies.<br />
+Imagine yourself at night, thinking about what movie to watch and no title comes to your mind. Well, that's exactly when **Moodflix can help you in identifying the perfect movie** for your night, based on **your actual mood**. <br />
+And after selecting your movie, Moodflix shows you all the movie's reviews with their own mood icon. <br />
+You can also get a global view at a glance to understand whether people have enjoyed it or not.<br />
+Go try it and please let us know if you enjoyed it with a ⭐️ - we would really appreciate it.<br />
 
 ### Preview video
 ![](https://github.com/kasuken/Moodflix/blob/main/moodflix.gif?raw=true)
