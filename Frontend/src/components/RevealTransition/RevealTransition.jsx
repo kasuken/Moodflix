@@ -1,48 +1,6 @@
 import "./revealTransition.scss";
 import {motion} from "framer-motion";
-import {defaultEasing} from "../../motionUtils";
-
-const blackBox = {
-  initial: {
-    height: "100vh",
-    top: 0,
-  },
-  animate: {
-    height: 0,
-    transition: {
-      when: "afterChildren",
-      duration: 1.5,
-      ease: defaultEasing,
-    },
-  },
-};
-
-const textContainer = {
-  initial: {
-    opacity: 1,
-  },
-  animate: {
-    opacity: 0,
-    transition: {
-      duration: 0.25,
-      when: "afterChildren",
-    },
-  },
-};
-
-const text = {
-  initial: {
-    y: "50.5%",
-  },
-  animate: {
-    y: "44.5%",
-    transition: {
-      duration: 1.5,
-      ease: defaultEasing,
-    },
-  },
-};
-
+import {blackRevealBoxVariants, textContainerVariants, textVariants} from "../../motionUtils";
 
 const RevealTransition = () => {
   return (
@@ -51,9 +9,9 @@ const RevealTransition = () => {
         className="reveal__sheet"
         initial="initial"
         animate="animate"
-        variants={blackBox}
+        variants={blackRevealBoxVariants}
       >
-        <motion.svg className="reveal__svg--wrp" variants={textContainer}>
+        <motion.svg className="reveal__svg--wrp" variants={textContainerVariants}>
           <pattern
             id="pattern"
             patternUnits="userSpaceOnUse"
@@ -62,7 +20,7 @@ const RevealTransition = () => {
             className="reveal__svg--pattern"
           >
             <rect className="reveal__svg--pattern rect" />
-            <motion.rect variants={text} className="reveal__svg--pattern motion-rect" />
+            <motion.rect variants={textVariants} className="reveal__svg--pattern motion-rect" />
           </pattern>
           <text
             className="reveal__svg--text"
