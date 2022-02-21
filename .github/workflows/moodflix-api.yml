@@ -1,0 +1,64 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Moodflix-Api
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'Backend/**' ]
+  workflow_dispatch:
+
+env:
+  NETCORE_VERSION: '6.0.*'
+  PROJECT_NAME: Backend/Moodflix/ 
+  PROJECT_FILE: Moodflix.csproj
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up .NET Core ${{ env.NETCORE_VERSION }}
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.NETCORE_VERSION }}
+          include-prerelease: true
+
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+        working-directory: ${{ env.PROJECT_NAME }}
+
+      - name: dotnet publish
+        run: dotnet publish -c Release
+        working-directory: ${{ env.PROJECT_NAME }}
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: .net-app
+          path: ${{ env.PROJECT_NAME }}/bin/Release/net6.0/publish
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: .net-app
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'Moodflix-Api'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_73BA627109C14E409D1E6F139F0EE321 }}
+          package: .
