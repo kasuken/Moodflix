@@ -30,7 +30,7 @@ Here you can find the demo link:
 :heavy_check_mark: &nbsp;&nbsp;Find objects and special objects on your face (beard, glasses, hat, ect.) and display them in our avatar selections<br />
 :heavy_check_mark: &nbsp;&nbsp;Display a list of movies based on your mood<br />
 :heavy_check_mark: &nbsp;&nbsp;Analyze and display the emotion from the reviews and display an avatar next to each description<br />
-:heavy_check_mark: &nbsp;&nbsp;Keywords extration from the overview of the movies<br />
+:heavy_check_mark: &nbsp;&nbsp;Keywords extraction from the overview of the movies<br />
 
 ## :rocket: Technologies
 
@@ -38,13 +38,13 @@ Here you can find the demo link:
 - [TMDb API's](https://www.themoviedb.org/)
 - [React](https://reactjs.org/)
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
-- [React Hooks Form](https://react-hook-form.com/)
+- [React Context API](https://reactjs.org/docs/context.html)
 - [React Router](https://reactrouter.com/web/guides/quick-start)
-- [Reselect](https://github.com/reduxjs/reselect)
+- [React Webcam](https://www.npmjs.com/package/react-webcam)
 - [SCSS](https://sass-lang.com/)
-- [SwiperJS](https://swiperjs.com/react)
 - [Framer Motion](https://www.framer.com/motion/)
 - [React Icons](https://react-icons.github.io/react-icons/)
+- [Axios](https://www.npmjs.com/package/axios)
 
 ### Backend
 - [ASP.NET Core 6](https://dotnet.microsoft.com/en-us/apps/aspnet)
@@ -129,8 +129,8 @@ Before starting 🧑‍💻, you need to have [Git](https://git-scm.com), [Node]
 <br/>
 
 ## 🧑‍💻 The Team
-- Emanuele Bartolesi [website](https://www.emanuelebartolesi.com)
-- Davide Mandelli [github](https://github.com/th3wall)
+- Emanuele Bartolesi [(Website)](https://www.emanuelebartolesi.com)
+- Davide Mandelli [(GitHub)](https://github.com/th3wall)
 
 ## 📝 License
 
