@@ -1,23 +1,11 @@
 import "./selfieCamera.scss";
 import { useState, useRef, useCallback } from "react";
 import Webcam from "react-webcam";
-import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 import {motion} from "framer-motion";
-import {contentEasing} from "../../motionUtils";
 import requests from "../../requests";
-
-const cam = {
-  initial: { y: -20, opacity: 0 },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.7,
-      ease: contentEasing,
-    },
-  },
-};
+import {camVariants} from "../../motionUtils";
 
 const SelfieCamera = () => {
   const webcamRef = useRef(null);
@@ -42,7 +30,7 @@ const SelfieCamera = () => {
   );
 
   return (
-    <motion.div className="selfieCamera" variants={cam}>
+    <motion.div className="selfieCamera" variants={camVariants}>
       <div className={`cam__wrp ${photoTaken ? "recorded" : ""}`}>
         <Webcam
           ref={webcamRef}

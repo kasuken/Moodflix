@@ -39,9 +39,11 @@ Here you can find the demo link:
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 - [React Context API](https://reactjs.org/docs/context.html)
 - [React Router](https://reactrouter.com/web/guides/quick-start)
+- [React Webcam](https://www.npmjs.com/package/react-webcam)
 - [SCSS](https://sass-lang.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [React Icons](https://react-icons.github.io/react-icons/)
+- [Axios](https://www.npmjs.com/package/axios)
 
 ### Backend
 - [ASP.NET Core 6](https://dotnet.microsoft.com/en-us/apps/aspnet)

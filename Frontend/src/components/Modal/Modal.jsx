@@ -51,6 +51,7 @@ const Modal = () => {
     }
   }, [isModalVisible, id]);
 
+  // TODO: COMPLETE REFACTOR
   return (
     <AnimatePresence exitBeforeEnter>
       {isModalVisible && (

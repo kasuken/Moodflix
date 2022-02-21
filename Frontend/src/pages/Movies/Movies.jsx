@@ -2,42 +2,13 @@ import "./movies.scss";
 import {useEffect, useState} from "react";
 import Movie from "../../components/Movie/Movie";
 import useImage from "../../hooks/useImage";
-import {NavLink} from "react-router-dom";
-import requests from "../../requests";
-import {evaluateEmotions, returnRange} from "../../utils";
-import {contentEasing} from "../../motionUtils";
-import { memojiConfig } from "../../memojiConfig";
-import {useLocation} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 import {motion} from "framer-motion";
 import axios from "axios";
-
-const content = {
-  animate: {
-    transition: { staggerChildren: 0.25, delayChildren: .75 },
-  },
-};
-const title = {
-  initial: { y: -20, opacity: 0 },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.7,
-      ease: contentEasing,
-    },
-  },
-};
-const moviesVariants = {
-  initial: { y: -20, opacity: 0 },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.7,
-      ease: contentEasing
-    },
-  },
-};
+import requests from "../../requests";
+import {evaluateEmotions, returnRange} from "../../utils";
+import {moviesPageContentVariants, moviesPageTextVariants, moviesStaggerVariants} from "../../motionUtils";
+import { memojiConfig } from "../../memojiConfig";
 
 const Movies = () => {
   const [ movies, setMovies ] = useState();
@@ -70,26 +41,26 @@ const Movies = () => {
         className="movies__container"
         initial="initial"
         animate="animate"
-        variants={content}
+        variants={moviesPageContentVariants}
       >
         {(faceDetected?.age) &&
         (faceDetected?.gender === 0 || faceDetected?.gender === 1) &&
         (faceDetected?.glasses === 0 || faceDetected?.glasses === 1) ? (
           <>
-            <motion.h1 variants={title} className="movies__title">Your mood, Our suggestions</motion.h1>
-            <motion.img src={imageSrc} className="movies__memoji" variants={title} />
-            <motion.p variants={title} className="movies__subtitle">We analyzed your photo and we tried to detect your emotions. <br/>Since the highest emotion we calculated is <span>{emotionType}</span> with a value of {`${(emotionValue*100).toFixed(1)}%`}, these are the movies that might fit your current mood:</motion.p>
+            <motion.h1 variants={moviesPageTextVariants} className="movies_title_">Your mood, Our suggestions</motion.h1>
+            <motion.img src={imageSrc} className="movies__memoji" variants={moviesPageTextVariants} />
+            <motion.p variants={moviesPageTextVariants} className="movies__subtitle">We analyzed your photo and we tried to detect your emotions. <br/>Since the highest emotion we calculated is <span>{emotionType}</span> with a value of {`${(emotionValue*100).toFixed(1)}%`}, these are the movies that might fit your current mood:</motion.p>
 
-            <motion.div variants={moviesVariants} className="movies__wrp">
+            <motion.div variants={moviesStaggerVariants} className="movies__wrp">
               {movies && movies.map(movie => <Movie key={movie.id} {...movie} /> )}
             </motion.div>
           </>
         ) : (
           <>
-            <motion.img src={fallbackSrc} className="movies__memoji" variants={title} />
-            <motion.h1 variants={title} className="movies__title">Oops! Please, try again.</motion.h1>
-            <motion.p variants={title} className="movies__subtitle error">We're sorry for the incovenience but we cannot determine all the necessary parameters with the picture you have submitted.</motion.p>
-            <motion.button variants={title} className="button">
+            <motion.img src={fallbackSrc} className="movies__memoji" variants={moviesPageTextVariants} />
+            <motion.h1 variants={moviesPageTextVariants} className="movies__title">Oops! Please, try again.</motion.h1>
+            <motion.p variants={moviesPageTextVariants} className="movies__subtitle error">We're sorry for the incovenience but we cannot determine all the necessary parameters with the picture you have submitted.</motion.p>
+            <motion.button variants={moviesPageTextVariants} className="button">
               <NavLink to="/">Try again</NavLink>
             </motion.button>
           </>
