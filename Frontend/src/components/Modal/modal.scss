@@ -246,4 +246,16 @@
       }
     }
   }
+
+  &__skeleton {
+    height: 100%;
+
+    &--contentWrp {
+      padding: 1em 1.5em;
+
+      @include mq('md') {
+        padding: 1.5em 2em;
+      }
+    }
+  }
 }

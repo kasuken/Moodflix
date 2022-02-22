@@ -109,3 +109,9 @@ $breakpoints: (ll: 1450px, lg: 1024px, md: 768px, sm: 640px, xs: 400px) !default
     @content;
   }
 }
+
+@mixin skeleton-animation {
+  background-image: linear-gradient(270deg, $sand, rgba($light-black, 0.2), rgba($light-black, 0.2), $sand);
+  background-size: 400% 100%;
+  border-radius: 5px;
+}
