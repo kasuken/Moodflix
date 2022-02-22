@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { VscChromeClose } from "react-icons/vsc";
 import axios from "axios";
 import {
-  modalFadeInUpVariants,
+  modalFadeInUpVariants, modalScaleAndFadeInVariants,
   modalOverlayVariants,
   modalScaleUpVariants,
   modalVariants,
@@ -78,7 +78,7 @@ const Modal = () => {
 
               {!isLoading && !error && results && (
                 <>
-                  <motion.img className="modal__image" src={results.movie.backdropPath ? `${BASE_IMG_URL}/${results.movie.backdropPath}` : FALLBACK_BACKDROP_IMG_URL} alt="" />
+                  <motion.img variants={modalScaleAndFadeInVariants} className="modal__image" src={results.movie.backdropPath ? `${BASE_IMG_URL}/${results.movie.backdropPath}` : FALLBACK_BACKDROP_IMG_URL} alt="" />
 
                   <motion.div className="modal__info--wrp" variants={staggerOne} initial="initial" animate="animate" exit="exit">
                     <motion.h3 className="modal__info--title" variants={modalFadeInUpVariants}>

@@ -25,6 +25,11 @@ export const modalScaleUpVariants = {
   animate: { y: 0, scale: 1, opacity: 1, transition: { duration: .6, ease: contentEasing } }
 };
 
+export const modalScaleAndFadeInVariants = {
+  hidden: { opacity: 0, scale: 1.1, transition: { duration: .8, ease: contentEasing } },
+  visible: { opacity: 1, scale: 1, transition: { delay: .1, duration: .8, ease: contentEasing } }
+}
+
 export const welcomePageContentVariants = {
   animate: { transition: { staggerChildren: 0.25, delayChildren: 2.8 } }
 };
