@@ -1,5 +1,6 @@
 import "./modal.scss";
 import {useState, useEffect, useRef} from "react";
+import SkeletonModal from "../SkeletonModal/SkeletonModal";
 import { useModalValue } from "../../context/ModalProvider";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import useDisableScroll from "../../hooks/useDisableScroll";
@@ -7,7 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { VscChromeClose } from "react-icons/vsc";
 import axios from "axios";
 import {
-  modalFadeInUpVariants,
+  modalFadeInUpVariants, modalScaleAndFadeInVariants,
   modalOverlayVariants,
   modalScaleUpVariants,
   modalVariants,
@@ -75,10 +76,11 @@ const Modal = () => {
               </motion.button>
 
               {error && <span>We're sorry but we can't load the data you have requested.</span>}
+              {isLoading && <SkeletonModal />}
 
               {!isLoading && !error && results && (
                 <>
-                  <motion.img className="modal__image" src={results.movie.backdropPath ? `${BASE_IMG_URL}/${results.movie.backdropPath}` : FALLBACK_BACKDROP_IMG_URL} alt="" />
+                  <motion.img variants={modalScaleAndFadeInVariants} className="modal__image" src={results.movie.backdropPath ? `${BASE_IMG_URL}/${results.movie.backdropPath}` : FALLBACK_BACKDROP_IMG_URL} alt="" />
 
                   <motion.div className="modal__info--wrp" variants={staggerOne} initial="initial" animate="animate" exit="exit">
                     <motion.h3 className="modal__info--title" variants={modalFadeInUpVariants}>

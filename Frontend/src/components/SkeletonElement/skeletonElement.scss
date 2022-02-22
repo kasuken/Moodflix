@@ -1,0 +1,116 @@
+@import '../../scss/mixin';
+@import '../../scss/variables';
+
+.skeleton {
+  background-color: rgba($sand, 0.8);
+  margin: 10px 0;
+  border-radius: $default-radius;
+
+  &.banner {
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    @include skeleton-animation;
+    animation: shine $skeleton-animation-duration $skeleton-easing-function $skeleton-iteration-count;
+  }
+
+  &.title {
+    width: 70%;
+    height: 30px;
+    margin-bottom: 15px;
+    @include skeleton-animation;
+    animation: shine $skeleton-animation-duration $skeleton-easing-function $skeleton-iteration-count;
+
+    @include mq('md') {
+      width: 60%;
+    }
+
+    @include mq('lg') {
+      height: 40px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &.text {
+    width: 90%;
+    height: 15px;
+    @include skeleton-animation;
+    animation: shine $skeleton-animation-duration $skeleton-easing-function $skeleton-iteration-count;
+
+    @include mq('lg') {
+      height: 20px;
+    }
+  }
+
+  &.keyword {
+    margin: 0.3em;
+    padding: 0.7rem 0.8rem;
+    width: 18%;
+    height: 35px;
+    display: inline-block;
+    @include skeleton-animation;
+    animation: shine $skeleton-animation-duration $skeleton-easing-function $skeleton-iteration-count;
+    border-radius: 18px;
+
+    &:last-of-type {
+      margin-bottom: 20px;
+    }
+  }
+
+  &.review {
+    margin: 0.5rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include mq('md') {
+      flex-direction: row;
+    }
+
+    &--img {
+      width: 12%;
+      aspect-ratio: 1/1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include skeleton-animation;
+      animation: shine $skeleton-animation-duration $skeleton-easing-function $skeleton-iteration-count;
+      border-radius: 100%;
+
+      @include mq('md') {
+        width: 20%;
+      }
+    }
+
+    &--content {
+      width: 100%;
+
+      @include mq('md') {
+        margin-left: 3%;
+        width: 75%;
+      }
+    }
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    background-color: $skeleton-shine-color;
+  }
+
+  75% {
+    background-color: $sand;
+  }
+}
