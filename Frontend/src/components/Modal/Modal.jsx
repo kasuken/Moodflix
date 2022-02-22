@@ -1,5 +1,6 @@
 import "./modal.scss";
 import {useState, useEffect, useRef} from "react";
+import SkeletonModal from "../SkeletonModal/SkeletonModal";
 import { useModalValue } from "../../context/ModalProvider";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import useDisableScroll from "../../hooks/useDisableScroll";
@@ -75,6 +76,7 @@ const Modal = () => {
               </motion.button>
 
               {error && <span>We're sorry but we can't load the data you have requested.</span>}
+              {isLoading && <SkeletonModal />}
 
               {!isLoading && !error && results && (
                 <>
