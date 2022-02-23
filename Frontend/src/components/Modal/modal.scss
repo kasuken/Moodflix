@@ -170,6 +170,7 @@
   &__section {
     &--wrp {
       margin-top: 0.5rem;
+      width: 100%;
       display: inline-flex;
       flex-wrap: wrap;
       gap: 0.4rem;
@@ -240,6 +241,7 @@
     &--content {
       font-size: 14px;
       line-height: 1.5;
+      word-break: break-word;
 
       @include mq('sm') {
         font-size: .9rem;

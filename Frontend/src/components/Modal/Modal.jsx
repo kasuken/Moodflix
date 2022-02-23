@@ -16,9 +16,9 @@ import {
 } from "../../motionUtils";
 import requests, {BASE_IMG_URL, FALLBACK_BACKDROP_IMG_URL} from "../../requests";
 import {dateToYearOnly, truncate} from "../../utils";
-import imagePositive from "../../images/emotions/reviews/emoji_review_positive.png";
-import imageNeutral from "../../images/emotions/reviews/emoji_review_neutral.png";
-import imageNegative from "../../images/emotions/reviews/emoji_review_negative.png";
+import imagePositive from "../../assets/images/emotions/reviews/emoji_review_positive.png";
+import imageNeutral from "../../assets/images/emotions/reviews/emoji_review_neutral.png";
+import imageNegative from "../../assets/images/emotions/reviews/emoji_review_negative.png";
 
  // TODO: COMPLETE REFACTOR
 
