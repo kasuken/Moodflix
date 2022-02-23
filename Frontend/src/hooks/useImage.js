@@ -9,10 +9,10 @@ const useImage = (filePath) => {
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const response = await import(`../images/${filePath}.png`);
+        const response = await import(`../assets/images/${filePath}.png`);
         setImageSrc(response.default)
       } catch (err) {
-        const response = await import(`../images/emotions/fallback/emoji_fallback.png`);
+        const response = await import(`../assets/images/emotions/fallback/emoji_fallback.png`);
         setFallbackSrc(response.default);
         setError(err);
       } finally {
