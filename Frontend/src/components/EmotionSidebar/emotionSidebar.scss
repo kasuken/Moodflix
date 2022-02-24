@@ -95,12 +95,12 @@
 
   &__info {
     &--wrp {
-      padding: 7vh 1.5vw;
+      padding: 7vh 4vw;
       height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-
+      
       @include mq('sm') {
         padding: 7vh 3vw;
       }
@@ -120,12 +120,12 @@
     }
 
     &--description {
-      margin-top: .5rem;
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.5;
+      text-align: center;
 
       @include mq('sm') {
-        font-size: 16px;
+        font-size: 20px;
       }
     }
 
@@ -134,7 +134,7 @@
       max-width: 40%;
 
       @include mq('sm') {
-        max-width: 45%;
+        max-width: 35%;
       }
     }
   }

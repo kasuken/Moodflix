@@ -10,7 +10,8 @@ import { VscChromeClose } from "react-icons/vsc";
 
 const EmotionSidebar = () => {
   const sidebarRef = useRef(null);
-  const {dispatch, state: { isSidebarVisible, memojiSrc }} = useSidebarValue();
+  const {dispatch, state: { isSidebarVisible, memojiSrc, age, gender, glasses, emotions }} = useSidebarValue();
+  console.log({ age, gender, glasses, emotions });
   const handleSidebarClose = () => dispatch({type: actionTypes.CLOSE_SIDEBAR});
   useDisableScroll(isSidebarVisible);
 
@@ -43,6 +44,20 @@ const EmotionSidebar = () => {
               <motion.div className="emotionSidebar__info--wrp" variants={staggerOne} initial="initial" animate="animate" exit="exit">
                 <motion.h2 className="emotionSidebar__info--title" variants={modalFadeInUpVariants}>Heeey! You curious?</motion.h2>
                 <motion.img src={memojiSrc} className="emotionSidebar__info--memoji" variants={modalFadeInUpVariants} />
+                <motion.p className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>The memoji above is not random: it's the result of the analysis made on the picture you took. We detected the following data:</motion.p>
+                
+                <motion.div className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>Gender: <strong>{gender === 0 ? "Male" : "Female"}</strong></motion.div>
+                <motion.div className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>Age: <strong>{age}</strong></motion.div>
+                <motion.div className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>Glasses: <strong>{glasses === 1 ? "Yes" : "No"}</strong></motion.div>
+
+                <motion.div className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>Happiness: {emotions?.happiness}</motion.div>
+                <motion.div className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>Neutral: {emotions?.neutral}</motion.div>
+                <motion.div className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>Sadness: {emotions?.sadness}</motion.div>
+                <motion.div className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>Anger: {emotions?.anger}</motion.div>
+                <motion.div className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>Fear: {emotions?.fear}</motion.div>
+                <motion.div className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>Disgust: {emotions?.disgust}</motion.div>
+                <motion.div className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>Surprise: {emotions?.surprise}</motion.div>
+                <motion.div className="emotionSidebar__info--description" variants={modalFadeInUpVariants}>Contempt: {emotions?.contempt}</motion.div>
               </motion.div>
             </motion.div>
           </motion.div>

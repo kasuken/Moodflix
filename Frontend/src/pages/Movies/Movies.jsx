@@ -15,13 +15,8 @@ import { actionTypes } from '../../context/types';
 const Movies = () => {
   const [ movies, setMovies ] = useState();
   const { state: faceDetected } = useLocation();
-  const { emotionType, emotionValue} = evaluateEmotions(faceDetected?.emotion);
+  const { emotionType, emotionValue } = evaluateEmotions(faceDetected?.emotion);
   const { dispatch } = useSidebarValue();
-  
-  const handleSidebarOpening = () => dispatch({ 
-    type: actionTypes.OPEN_SIDEBAR,
-    payload: imageSrc
-  });
 
   let memojiSrc;
   if ((faceDetected?.age) &&
@@ -33,7 +28,6 @@ const Movies = () => {
     let memojiObj = faceDetected?.glasses === 0 ? agePortion["noglasses"] : agePortion["glasses"];
     memojiSrc = memojiObj[emotionType];
   }
-
   const { imageSrc, fallbackSrc } = useImage(memojiSrc);
 
   useEffect(() => {
@@ -42,6 +36,17 @@ const Movies = () => {
     }).then(res => setMovies(res.data.movies))
       .catch(err => console.log(err));
   }, [emotionType]);
+
+  const handleSidebarOpening = () => dispatch({ 
+    type: actionTypes.OPEN_SIDEBAR,
+    payload: {
+      memojiSrc: imageSrc,
+      gender: faceDetected.gender,
+      age: faceDetected.age,
+      glasses: faceDetected.glasses,
+      emotions: faceDetected.emotions
+    }
+  });
 
   return (
     <motion.section className="movies page" exit={{ opacity: 0 }}>
