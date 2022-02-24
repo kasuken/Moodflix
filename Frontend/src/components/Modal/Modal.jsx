@@ -14,6 +14,7 @@ import {
   modalVariants,
   staggerOne
 } from "../../motionUtils";
+import {actionTypes} from "../../context/types";
 import requests, {BASE_IMG_URL, FALLBACK_BACKDROP_IMG_URL} from "../../requests";
 import {dateToYearOnly, truncate} from "../../utils";
 import imagePositive from "../../assets/images/emotions/reviews/emoji_review_positive.png";
@@ -28,7 +29,7 @@ const Modal = () => {
   const [ results, setResults ] = useState(null);
   const [ isLoading, setIsLoading ] = useState(true);
   const [ error, setError ] = useState(false);
-  const handleModalClose = () => dispatch({type: "CLOSE_MODAL"});
+  const handleModalClose = () => dispatch({type: actionTypes.CLOSE_MODAL});
   useDisableScroll(isModalVisible);
 
   useOutsideClick(modalRef, () => {

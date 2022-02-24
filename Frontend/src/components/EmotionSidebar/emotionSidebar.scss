@@ -1,0 +1,175 @@
+@import '../../scss/mixin';
+@import "../../scss/variables";
+
+.emotionSidebar {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba($light-black, 0.7);
+    opacity: 1;
+    pointer-events: all;
+    z-index: 98;
+
+    &.emotionSidebar__invisible {
+      opacity: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+  }
+
+  &__wrp {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 99;
+    pointer-events: all;
+    background: $sand;
+    border-radius: 5px;
+
+    @include mq('sm') {
+      width: 80vw;
+    }
+
+    @include mq('md') {
+      width: 65vw;
+    }
+
+    @include mq('lg') {
+      width: 55vw;
+    }
+
+    @include mq('ll') {
+      max-width: 750px;
+      width: 100%;
+    }
+
+    &.emotionSidebar__invisible {
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__closebtn {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    z-index: 1;
+    display: inline-flex;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 5px;
+    margin-bottom: 0.8em;
+    background: $light-black;
+    color: $white;
+    border: 2px solid $white;
+    transition: all 0.3s ease-out;
+    outline: none;
+
+    &:hover {
+      background: $white;
+      color: rgba($light-black, 0.5);
+    }
+
+    svg {
+      stroke-width: 1px;
+    }
+  }
+
+  &__info {
+    &--wrp {
+      padding: 7vh 4vw;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      @include mq('sm') {
+        padding: 7vh 3vw;
+      }
+    }
+
+    &--title {
+      margin-bottom: 1vh;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      
+      @include mq('sm') {
+        font-size: 38px;
+        letter-spacing: -2px;
+      }
+    }
+
+    &--description {
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+
+      @include mq('sm') {
+        font-size: 18px;
+      }
+    }
+
+    &--memoji {
+      width: 100%;
+      max-width: 40%;
+
+      @include mq('sm') {
+        max-width: 35%;
+      }
+    }
+
+    &-detection {
+      &--wrp {
+        width: 90%;
+        margin-top: 2vh;
+      }
+
+      &--item {
+        padding: .3rem .15rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid darken($sand, 30%);
+
+        @include mq('sm') {
+          padding: .4rem .3rem;
+        }
+      }
+
+      &--label,
+      &--value {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+
+        @include mq('sm') {
+          font-size: 18px;
+        }
+      }
+
+      &--value {
+        font-weight: 700;
+      }
+    }
+  }
+}
