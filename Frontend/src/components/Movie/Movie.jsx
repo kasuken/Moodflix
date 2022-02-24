@@ -12,7 +12,7 @@ const Movie = (props) => {
   const handleClick = () => handleModalOpening(id);
   const handleModalOpening = (id) => {
     dispatch({
-      type: actionTypes.OPEN_MOVIE_MODAL,
+      type: actionTypes.OPEN_MODAL,
       payload: { id }
     });
   };

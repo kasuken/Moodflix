@@ -20,26 +20,27 @@ import {dateToYearOnly, truncate} from "../../utils";
 import imagePositive from "../../assets/images/emotions/reviews/emoji_review_positive.png";
 import imageNeutral from "../../assets/images/emotions/reviews/emoji_review_neutral.png";
 import imageNegative from "../../assets/images/emotions/reviews/emoji_review_negative.png";
+
  // TODO: COMPLETE REFACTOR
 
 const Modal = () => {
   const modalRef = useRef(null);
-  const {dispatch, state: { isMovieModalVisible, id }} = useModalValue();
+  const {dispatch, state: { isModalVisible, id }} = useModalValue();
   const [ results, setResults ] = useState(null);
   const [ isLoading, setIsLoading ] = useState(true);
   const [ error, setError ] = useState(false);
-  const handleModalClose = () => dispatch({type: actionTypes.CLOSE_MOVIE_MODAL});
-  useDisableScroll(isMovieModalVisible);
+  const handleModalClose = () => dispatch({type: actionTypes.CLOSE_MODAL});
+  useDisableScroll(isModalVisible);
 
   useOutsideClick(modalRef, () => {
-    if (isMovieModalVisible) handleModalClose();
+    if (isModalVisible) handleModalClose();
   });
 
   useEffect(() => {
     setIsLoading(true);
     setResults(null);
 
-    if (isMovieModalVisible) {
+    if (isModalVisible) {
       axios.get(requests.retrieveById, {params: id })
         .then(res => {
           setResults(res.data);
@@ -50,16 +51,16 @@ const Modal = () => {
           setIsLoading(false);
         });
     }
-  }, [isMovieModalVisible, id]);
+  }, [isModalVisible, id]);
 
   // TODO: COMPLETE REFACTOR
   return (
     <AnimatePresence exitBeforeEnter>
-      {isMovieModalVisible && (
+      {isModalVisible && (
         <>
           <motion.div
             key="modalOverlay"
-            className={`modal__overlay ${!isMovieModalVisible && 'modal__invisible'}`}
+            className={`modal__overlay ${!isModalVisible && 'modal__invisible'}`}
             variants={modalOverlayVariants}
             initial="hidden"
             animate="visible"
@@ -68,7 +69,7 @@ const Modal = () => {
             <motion.div
               key="modal"
               ref={modalRef}
-              className={`modal__wrp ${!isMovieModalVisible && 'modal__invisible'}`}
+              className={`modal__wrp ${!isModalVisible && 'modal__invisible'}`}
               variants={modalVariants}
             >
               <motion.button className="modal__closebtn" onClick={handleModalClose}>

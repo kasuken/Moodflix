@@ -1,7 +1,7 @@
 @import '../../scss/mixin';
 @import "../../scss/variables";
 
-.emotionModal {
+.emotionSidebar {
   &__overlay {
     position: fixed;
     top: 0;
@@ -15,7 +15,7 @@
     pointer-events: all;
     z-index: 98;
 
-    &.emotionModal__invisible {
+    &.emotionSidebar__invisible {
       opacity: 0;
       z-index: -1;
       pointer-events: none;
@@ -55,7 +55,7 @@
       width: 100%;
     }
 
-    &.emotionModal__invisible {
+    &.emotionSidebar__invisible {
       z-index: -1;
       pointer-events: none;
     }
