@@ -58,6 +58,11 @@ export const camVariants = {
   animate: { y: 0, opacity: 1, transition: { duration: 0.7, ease: contentEasing }}
 };
 
+export const sidebarVariants = {
+  hidden: { opacity: 0, right: "-100%", transition: { duration: .6, ease: defaultEasing } },
+  visible: { opacity: 1, right: "0%", transition: { duration: .8, ease: defaultEasing } }
+}
+
 // Reveal Transition
 
 export const blackRevealBoxVariants = {

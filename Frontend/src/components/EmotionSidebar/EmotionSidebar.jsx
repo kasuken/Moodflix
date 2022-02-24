@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useSidebarValue } from "../../context/SidebarProvider";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import useDisableScroll from "../../hooks/useDisableScroll";
-import { modalFadeInUpVariants, modalOverlayVariants, modalVariants, staggerOne } from "../../motionUtils";
+import { modalFadeInUpVariants, modalOverlayVariants, sidebarVariants, staggerOne } from "../../motionUtils";
 import { actionTypes } from "../../context/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { VscChromeClose } from "react-icons/vsc";
@@ -34,15 +34,15 @@ const EmotionSidebar = () => {
               key="sidebar"
               ref={sidebarRef}
               className={`emotionSidebar__wrp ${!isSidebarVisible && 'emotionSidebar__invisible'}`}
-              variants={modalVariants}
+              variants={sidebarVariants}
             >
               <motion.button className="emotionSidebar__closebtn" onClick={handleSidebarClose}>
                 <VscChromeClose />
               </motion.button>
 
-              <motion.div className="modal__info--wrp" variants={staggerOne} initial="initial" animate="animate" exit="exit">
+              <motion.div className="emotionSidebar__info--wrp" variants={staggerOne} initial="initial" animate="animate" exit="exit">
                 <motion.h2 className="emotionSidebar__info--title" variants={modalFadeInUpVariants}>Heeey! You curious?</motion.h2>
-                <motion.img src={memojiSrc} />
+                <motion.img src={memojiSrc} className="emotionSidebar__info--memoji" variants={modalFadeInUpVariants} />
               </motion.div>
             </motion.div>
           </motion.div>

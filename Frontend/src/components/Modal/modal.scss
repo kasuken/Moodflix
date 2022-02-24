@@ -133,38 +133,6 @@
         font-size: 16px;
       }
     }
-
-    &--otherTitle {
-      font-size: 16px;
-      line-height: 1.4;
-      font-weight: 400;
-      margin-bottom: 15px;
-
-      @include mq('sm') {
-        font-size: 20px;
-      }
-    }
-
-    &--row {
-      font-size: 12px;
-      line-height: 1.6;
-      margin: .5em;
-      margin-left: 0;
-      word-break: break-word;
-
-      &-label {
-        color: #777;
-      }
-
-      &-description {
-        color: #ddd;
-      }
-
-      @include mq('sm') {
-        font-size: 14px;
-        line-height: 1.5;
-      }
-    }
   }
 
   &__section {
