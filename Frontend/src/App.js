@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Modal from "./components/Modal/Modal";
 import Movies from "./pages/Movies/Movies";
 import Welcome from "./pages/Welcome/Welcome";
+import EmotionSidebar from "./components/EmotionSidebar/EmotionSidebar";
 import ClarityScript from "./components/ClarityScript/ClarityScript";
 import {AnimatePresence} from "framer-motion";
 
@@ -11,6 +12,7 @@ const App = () => (
     <>
       <Navbar />
       <Modal />
+      <EmotionSidebar />
       <Routes>
         <Route exact path="/" element={<Welcome />} />
         <Route path="/movies" element={<Movies />} />
