@@ -1,5 +1,7 @@
 export const returnRange = age => age <= 30 ? "30" : age <= 50 ? "50" : "80";
 
+export const returnPercentage = value => value.toFixed(1);
+
 export const dateToYearOnly = date => date.slice(0,4);
 
 export const truncate = (text, n) => (

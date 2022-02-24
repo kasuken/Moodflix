@@ -4,10 +4,7 @@ import { actionTypes } from "./types";
 const initialState = {
   isSidebarVisible: false,
   memojiSrc: null,
-  age: null,
-  gender: null,
-  glasses: null,
-  emotions: null
+  faceDetected: null
 };
 
 const SidebarContext = createContext();
@@ -19,10 +16,7 @@ const sidebarReducer = (state = initialState, { type, payload }) => {
         ...state,
         isSidebarVisible: true,
         memojiSrc: payload.memojiSrc,
-        age: payload.age,
-        gender: payload.gender,
-        glasses: payload.glasses,
-        emotions: payload.emotions
+        faceDetected: payload.faceDetected
       };
     }
     case actionTypes.CLOSE_SIDEBAR: {
