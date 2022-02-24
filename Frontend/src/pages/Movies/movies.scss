@@ -111,4 +111,30 @@
       text-decoration: none;
     }
   }
+
+  &__memoji {
+    transform-origin: bottom;
+    &:hover {
+      cursor: pointer;
+      animation: tilt .4s ease-out;
+    }
+  }
+}
+
+@keyframes tilt {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

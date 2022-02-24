@@ -9,11 +9,19 @@ import requests from "../../requests";
 import {evaluateEmotions, returnRange} from "../../utils";
 import {moviesPageContentVariants, moviesPageTextVariants, moviesStaggerVariants} from "../../motionUtils";
 import { memojiConfig } from "../../memojiConfig";
+import { useModalValue } from "../../context/ModalProvider";
+import { actionTypes } from '../../context/types';
 
 const Movies = () => {
   const [ movies, setMovies ] = useState();
   const { state: faceDetected } = useLocation();
   const { emotionType, emotionValue} = evaluateEmotions(faceDetected?.emotion);
+  const { dispatch } = useModalValue();
+  
+  const handleModalOpening = () => dispatch({ 
+    type: actionTypes.OPEN_EMOTION_MODAL,
+    payload: imageSrc
+  });
 
   let memojiSrc;
   if ((faceDetected?.age) &&
@@ -48,7 +56,7 @@ const Movies = () => {
         (faceDetected?.glasses === 0 || faceDetected?.glasses === 1) ? (
           <>
             <motion.h1 variants={moviesPageTextVariants} className="movies_title_">Your mood, Our suggestions</motion.h1>
-            <motion.img src={imageSrc} className="movies__memoji" variants={moviesPageTextVariants} />
+            <motion.img src={imageSrc} onClick={handleModalOpening} className="movies__memoji" variants={moviesPageTextVariants} />
             <motion.p variants={moviesPageTextVariants} className="movies__subtitle">We analyzed your photo and we tried to detect your emotions. <br/>Since the highest emotion we calculated is <span>{emotionType}</span> with a value of {`${(emotionValue*100).toFixed(1)}%`}, these are the movies that might fit your current mood:</motion.p>
 
             <motion.div variants={moviesStaggerVariants} className="movies__wrp">
