@@ -35,7 +35,7 @@ Here you can find the demo link:
 
 ## :rocket: Technologies
 
-### Frontend
+### Frontend ([Th3Wall](https://github.com/Th3Wall))
 - [TMDb API's](https://www.themoviedb.org/)
 - [React](https://reactjs.org/)
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
@@ -47,7 +47,7 @@ Here you can find the demo link:
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [Axios](https://www.npmjs.com/package/axios)
 
-### Backend
+### Backend ([Kasuken](https://github.com/Kasuken))
 - [ASP.NET Core 6](https://dotnet.microsoft.com/en-us/apps/aspnet)
 - [C# 10](https://docs.microsoft.com/en-us/dotnet/csharp/)
 - [.NET 6](https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet)
@@ -136,3 +136,6 @@ Before starting 🧑‍💻, you need to have [Git](https://git-scm.com), [Node]
 ## 📝 License
 
 [Apache-2.0 License](https://github.com/kasuken/Moodflix/blob/main/LICENSE)
+
+## 🔮 Repo Analytics
+![Alt](https://repobeats.axiom.co/api/embed/74af2c2e3aad026045cbc9ad32b1085d14efd06d.svg "Repobeats analytics image")

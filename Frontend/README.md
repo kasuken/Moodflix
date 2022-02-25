@@ -7,14 +7,15 @@
 
 ## 🎯 About
 
-We have started this project with the purpose to partecipate to the [Microsoft Azure Hackthon on dev.to](https://dev.to/devteam/hack-the-microsoft-azure-trial-on-dev-2ne5). 
-The goal of the project is to add special features to an existing list of movies.<br/>
-When at night you are not sure about the movie you wanna watch, Moodflix can help you in discovering your actual mood and finding the perfect movie for your night.<br/>
-In the movie details our application displays all the reviews about it and their own mood. <br/>
-You can also get a global view at a glance to understand whether people have enjoyed that specific movie or not.
-<br/>
+### Overview of our project
+We have started this project with the purpose to participate to the Microsoft Azure Hackathon on dev.to. Our project's goal is to add special features to an existing list of movies.
+Imagine yourself at night, thinking about what movie to watch and no title comes to your mind. Well, that's exactly when **Moodflix can help you in identifying the perfect movie** for your night, based on **your actual mood**. 
+And after selecting your movie, Moodflix shows you all the movie's reviews with their own mood icon. 
+You can also get a global view at a glance to understand whether people have enjoyed it or not.
 Go try it and please let us know if you enjoyed it with a ⭐️ - we would really appreciate it.
-<br/>
+
+### Preview video
+![](https://github.com/kasuken/Moodflix/blob/main/moodflix.gif?raw=true)
 
 ## ▶️ Demo
 
@@ -33,7 +34,7 @@ Here you can find the demo link:
 
 ## :rocket: Technologies
 
-### Frontend
+### Frontend ([Th3Wall](https://github.com/Th3Wall))
 - [TMDb API's](https://www.themoviedb.org/)
 - [React](https://reactjs.org/)
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
@@ -45,7 +46,7 @@ Here you can find the demo link:
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [Axios](https://www.npmjs.com/package/axios)
 
-### Backend
+### Backend ([Kasuken](https://github.com/Kasuken))
 - [ASP.NET Core 6](https://dotnet.microsoft.com/en-us/apps/aspnet)
 - [C# 10](https://docs.microsoft.com/en-us/dotnet/csharp/)
 - [.NET 6](https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet)
@@ -66,7 +67,7 @@ To deploy the solution, we use two different [GitHub Actions](https://github.com
 
 ## 📸 Screenshots
 
-**Loaging page**
+**Loading page**
 ![Moodflix Loading page](https://user-images.githubusercontent.com/2757486/154629449-4f2984c8-1702-43f0-b40e-6459231e155a.png)
 <br/>
 
@@ -76,6 +77,10 @@ To deploy the solution, we use two different [GitHub Actions](https://github.com
 
 **Results**
 ![Screenshot of Moodflix results](https://user-images.githubusercontent.com/2757486/154628700-745f6e97-5585-442e-a818-df51162b4386.png)
+<br/>
+
+**Movie Details**
+![image](https://user-images.githubusercontent.com/2757486/154838027-19f27cc7-a101-4b34-975b-a6bd69469d21.png)
 <br/>
 
 <br/>
@@ -120,7 +125,7 @@ Press F5 to start the debug session.
 
 ## :white_check_mark: Requirements
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com), [Node](https://nodejs.org/en/) and [.NET 6](https://dotnet.microsoft.com/en-us/) installed.
+Before starting 🧑‍💻, you need to have [Git](https://git-scm.com), [Node](https://nodejs.org/en/) and [.NET 6](https://dotnet.microsoft.com/en-us/) installed.
 <br/>
 
 ## 🧑‍💻 The Team
@@ -130,3 +135,6 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com), [
 ## 📝 License
 
 [Apache-2.0 License](https://github.com/kasuken/Moodflix/blob/main/LICENSE)
+
+## 🔮 Repo Analytics
+![Alt](https://repobeats.axiom.co/api/embed/74af2c2e3aad026045cbc9ad32b1085d14efd06d.svg "Repobeats analytics image")
