@@ -16,7 +16,8 @@ You can also get a global view at a glance to understand whether people have enj
 Go try it and please let us know if you enjoyed it with a ⭐️ - we would really appreciate it.<br />
 
 ### Preview video
-![](https://github.com/kasuken/Moodflix/blob/main/moodflix.gif?raw=true)
+![](https://user-images.githubusercontent.com/2757486/155729585-e89b35be-3799-435e-9de3-bd48bd8ed69d.gif)
+
 
 ## ▶️ Demo
 
@@ -69,19 +70,20 @@ To deploy the solution, we use two different [GitHub Actions](https://github.com
 ## 📸 Screenshots
 
 **Loading page**
-![Moodflix Loading page](https://user-images.githubusercontent.com/2757486/154629449-4f2984c8-1702-43f0-b40e-6459231e155a.png)
+![Moodflix Loading page](https://user-images.githubusercontent.com/2757486/155728648-e1526067-d45d-455f-978d-22b4608399d6.gif)
 <br/>
 
 **Landing Page with Webcam**
-![image](https://user-images.githubusercontent.com/2757486/154629834-ae146ed5-4859-479b-94f3-9acb3d2aab2f.png)
+![Moodflix Landing page](https://user-images.githubusercontent.com/2757486/154629834-ae146ed5-4859-479b-94f3-9acb3d2aab2f.png)
 <br/>
 
 **Results**
-![Screenshot of Moodflix results](https://user-images.githubusercontent.com/2757486/154628700-745f6e97-5585-442e-a818-df51162b4386.png)
+![Screenshot of Moodflix results](https://user-images.githubusercontent.com/2757486/155727314-bd6cc96a-1c21-4e71-abcc-2abffca17896.png)
 <br/>
 
 **Movie Details**
-![image](https://user-images.githubusercontent.com/2757486/154838027-19f27cc7-a101-4b34-975b-a6bd69469d21.png)
+![Moodflix Details](https://user-images.githubusercontent.com/2757486/155727548-64ffc6b4-1eaf-49b9-b30e-722b713b1a72.png)
+
 <br/>
 
 <br/>
