@@ -214,6 +214,11 @@
       @include mq('sm') {
         font-size: .9rem;
       }
+
+      a {
+        color: $black;
+        font-weight: 500;
+      }
     }
   }
 

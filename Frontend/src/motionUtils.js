@@ -79,3 +79,8 @@ export const textVariants = {
   initial: { y: "50.5%" },
   animate: { y: "44.5%", transition: { duration: 1.5, ease: defaultEasing }}
 };
+
+export const footerVariants = {
+  initial: { y: "100%", opacity: 0 },
+  animate: { y: "0%", opacity: 1, transition: { duration: 0.7, ease: contentEasing }}
+};
