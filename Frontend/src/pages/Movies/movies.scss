@@ -6,7 +6,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  justify-content: space-between;
   text-align: center;
 
   h1 {
@@ -81,8 +82,7 @@
   }
 
   .button {
-    margin: 0 1.5rem;
-    margin-top: 2rem;
+    margin: 2rem 1.5rem 5vh;
     padding: 1em 1.2em;
     border-radius: 5px;
     background-color: $light-black;

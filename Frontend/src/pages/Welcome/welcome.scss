@@ -3,20 +3,27 @@
 
 .welcome {
   width: 100vw;
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
 
+  &.page {
+    padding: 4rem 4vw 0 4vw;
+  }
+
   h1 {
     margin-bottom: 1vh;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -1.5px;
 
+    @include mq('sm') {
+      font-size: 2.5rem;
+    }
     @include mq('md') {
       font-size: 3.25rem;
       line-height: 1.3;
@@ -31,7 +38,7 @@
 
   p {
     margin-bottom: 4vh;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.4;
     font-weight: 400;
     letter-spacing: -.5px;
@@ -41,6 +48,10 @@
       @include mq('md') {
         display: block;
       }
+    }
+
+    @include mq('sm') {
+      font-size: 1.2rem;
     }
 
     @include mq('md') {

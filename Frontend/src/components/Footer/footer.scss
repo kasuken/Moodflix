@@ -1,0 +1,44 @@
+@import '../../scss/mixin';
+@import "../../scss/variables";
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 5vh;
+  font-size: 13px;
+  text-align: center;
+
+  &__linkWrp {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    font-weight: 700;
+    margin-left: 4px;
+    text-decoration: none;
+    transition: transform .2s ease-in-out;
+    will-change: transform;
+
+    &:hover {
+      transform: scale(.95);
+    }
+
+    &--and {
+      margin-left: 5px;
+    }
+  }
+
+  &__avatar {
+    display: inline-block;
+    max-width: 30px;
+    width: 100%;
+    margin-left: 5px;
+    border-radius: 100%;
+  }
+
+  &__movies {
+    margin-top: 3vh;
+  }
+}

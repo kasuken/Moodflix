@@ -123,7 +123,7 @@ const Modal = () => {
                                   </>
                                 )}
                               </div>
-                              <p className="modal__review--content">{truncate(review.content, 450)}</p>
+                              <p className="modal__review--content" dangerouslySetInnerHTML={{  __html: truncate(review.content, 450) }} />
                             </motion.div>
                           ))}
                         </>
