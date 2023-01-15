@@ -1,8 +1,31 @@
-<h1 align="center">Moodflix</h1>
-<h5 align="center">your mood, our suggestions.</h5><br/>
+<a href="https://moodflix.th3wall.codes">
+  <img alt="Moodflix – your mood, our suggestions" src="https://cdn.jsdelivr.net/gh/Th3Wall/assets-cdn/Moodflix/Moodflix_Backdrop_Placeholder.png">
+  <h1 align="center">Moodflix</h1>
+</a>
 
-![Image of Moodflix Project](https://cdn.jsdelivr.net/gh/Th3Wall/assets-cdn/Moodflix/Moodflix_Backdrop_Placeholder.png)
+<p align="center">
+  Your mood, our suggestions.
+</p>
 
+<p align="center">
+  <a href="https://twitter.com/Th3Wall25">
+    <img src="https://img.shields.io/twitter/follow/Th3Wall25?style=flat&label=Th3Wall25&logo=twitter&color=0bf&logoColor=fff" alt="Th3Wall Twitter Profile" />
+  </a>
+  <a href="https://twitter.com/Kasuken">
+    <img src="https://img.shields.io/twitter/follow/Kasuken?style=flat&label=Kasuken&logo=twitter&color=0bf&logoColor=fff" alt="Kasuken Twitter Profile" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="#-about"><strong>About</strong></a> ·
+  <a href="#%EF%B8%8F-demo"><strong>Demo</strong></a> ·
+  <a href="#sparkles-features"><strong>Features</strong></a> ·
+  <a href="#rocket-technologies"><strong>Technologies</strong></a> ·
+  <a href="#-screenshots"><strong>Screenshots</strong></a> ·
+  <a href="#-run-locally"><strong>Run Locally</strong></a> ·
+  <a href="#white_check_mark-requirements"><strong>Requirements</strong></a> ·
+  <a href="#-license"><strong>License</strong></a>
+</p>
 <br/>
 
 ## 🎯 About
